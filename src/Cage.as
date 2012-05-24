@@ -3,8 +3,9 @@ package
 	
 	/**
 	 * ...
-	 * @author Antonie Hogewoning
+	 * @author Epic Sauce
 	 */
+	
 	public class Cage 
 	{
 		
