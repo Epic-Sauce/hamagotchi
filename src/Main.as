@@ -20,7 +20,6 @@ package
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			// entry point
-			
 		}
 		
 	}
