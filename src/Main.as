@@ -27,6 +27,15 @@ package
 			myButton.addEventListener(MouseEvent.CLICK, onClickLeft);
 		}
 		
+		function sleep(ms:int):void {
+			var init:int = getTimer();
+			while(true) {
+				if(getTimer() - init >= ms) {
+					break;
+				}
+			}
+		}
+		
 		private function onClickLeft(e:MouseEvent):void 
 		{
 			Hamster.setGoLeft();
