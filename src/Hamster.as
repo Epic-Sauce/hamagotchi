@@ -2,6 +2,8 @@ package
 {
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import flash.events.KeyboardEvent;
+	import flash.ui.Keyboard;
 	
 	/**
 	 * ...
@@ -10,23 +12,19 @@ package
 	public class Hamster extends Sprite
 	{
 		private var color:uint = 0x00FF00;
-		private var goRight:Boolean = true;
-		private var goLeft:Boolean = false;
-		
+		static private var goRight:Boolean = false;
+		static private var goLeft:Boolean = false;
+
 		public function Hamster(posX:int, posY:int)
 		{
 			x = posX;
 			y = posY;
 			
-			draw();
-			addEventListener(Event.ENTER_FRAME, move);
-		}
-		
-		public function draw():void
-		{
 			graphics.beginFill(color);
 			graphics.drawCircle(0, 0, 25);
 			graphics.endFill();
+			
+			addEventListener(Event.ENTER_FRAME, move);
 		}
 		
 		//Laat de "hamster" heen en weer bewegen tussen bepaalde grensen (aanpassen naar positie van de objecten en knop input)
@@ -34,18 +32,30 @@ package
 			if (goRight) {
 				x += 5;
 				if (x > stage.stageWidth - width) {
-					goLeft = true;
 					goRight = false;
+					if (goLeft) {
+						goRight = false;
+					}
 				}
 			}
-			if(goLeft){
+			if(goLeft && !goRight){
 				x -= 5;
 				if (x < (0 + width)) {
 					goLeft = false;
-					goRight = true;
+					if (goRight) {
+						goLeft = false;
+					}
 				}
 			}
-			
 		}
+		static public function setGoRight():void {
+			goRight = true;
+		}
+		
+		static public function setGoLeft():void {
+			goLeft = true;
+		}
+		
+		
 	}
 }

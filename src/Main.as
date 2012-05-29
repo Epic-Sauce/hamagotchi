@@ -2,6 +2,7 @@ package
 {
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import flash.events.MouseEvent;
 	
 	/**
 	 * ...
@@ -19,7 +20,16 @@ package
 		private function init(e:Event = null):void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
-			addChild(new Hamster(100, 100));
+			addChild(new Hamster(100, stage.stageHeight - 300));
+			addChild(new Button(500, stage.stageHeight - 150));
+			var myButton:Button = new Button(200, stage.stageHeight - 150);
+			addChild(myButton);
+			myButton.addEventListener(MouseEvent.CLICK, onClickLeft);
+		}
+		
+		private function onClickLeft(e:MouseEvent):void 
+		{
+			Hamster.setGoLeft();
 		}
 		
 	}
