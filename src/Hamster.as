@@ -32,19 +32,14 @@ package
 			if (goRight) {
 				x += 5;
 				if (x > stage.stageWidth - width) {
-					goRight = false;
-					if (goLeft) {
-						goRight = false;
-					}
+					goRight = false;	
 				}
 			}
-			if(goLeft && !goRight){
+			
+			if(goLeft){
 				x -= 5;
 				if (x < (0 + width)) {
 					goLeft = false;
-					if (goRight) {
-						goLeft = false;
-					}
 				}
 			}
 		}
