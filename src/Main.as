@@ -1,5 +1,6 @@
 package 
 {
+	import flash.display.Bitmap;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
@@ -11,6 +12,10 @@ package
 	 */
 	public class Main extends Sprite 
 	{
+		
+		[Embed(source = "../lib/hamsterCage.jpg")]
+		private var backgroundClass:Class;
+		private var background:Bitmap = new backgroundClass();
 		
 		public function Main():void 
 		{
@@ -26,6 +31,7 @@ package
 			var myButton:Button = new Button(200, stage.stageHeight - 150);
 			addChild(myButton);
 			myButton.addEventListener(MouseEvent.CLICK, onClickLeft);
+			addChild(background);
 		}
 		
 		function sleep(ms:int):void {
