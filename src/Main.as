@@ -14,6 +14,9 @@ package
 	public class Main extends Sprite 
 	{
 		private var background:HamsterCage  = new HamsterCage();
+		private var buttonLeft:ButtonTest = new ButtonTest();
+		private var buttonRight:ButtonTest = new ButtonTest();
+		private var gameUI:GameUI = new GameUI();
 		
 		public function Main():void 
 		{
@@ -25,13 +28,18 @@ package
 		private function init(e:Event = null):void 
 		{
 			trace("Main init started");
-			addChild(background);
 			removeEventListener(Event.ADDED_TO_STAGE, init);
+			
+			addChild(background);
+			addChild(gameUI);
 			addChild(new Hamster(100, stage.stageHeight - 300));
-			addChild(new Button(500, stage.stageHeight - 150));
-			var myButton:Button = new Button(200, stage.stageHeight - 150);
-			addChild(myButton);
-			myButton.addEventListener(MouseEvent.CLICK, onClickLeft);
+			addChild(buttonLeft);
+			addChild(buttonRight);
+			buttonLeft.y = stage.stageHeight-buttonLeft.height;
+			buttonLeft.addEventListener(MouseEvent.CLICK, onClickLeft);
+			buttonRight.y = stage.stageHeight - buttonRight.height;
+			buttonRight.x = 200;
+			buttonRight.addEventListener(MouseEvent.CLICK, onClickRight);
 		}
 		
 		function sleep(ms:int):void {
@@ -47,6 +55,11 @@ package
 		{
 			trace("Main onClickLeft started");
 			Hamster.setGoLeft();
+		}
+		private function onClickRight(e:MouseEvent):void 
+		{
+			trace("Main onClickLeft started");
+			Hamster.setGoRight();
 		}
 		
 	}
