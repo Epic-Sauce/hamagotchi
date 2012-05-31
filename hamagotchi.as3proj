@@ -54,6 +54,10 @@
     <element path="lib\buttonTest.swc" />
     <element path="lib\hamsterCage.swc" />
     <element path="lib\gameUI.swc" />
+    <element path="lib\WaterBottle.swc" />
+    <element path="lib\HamsterCage.swc" />
+    <element path="lib\GameUI.swc" />
+    <element path="lib\ButtonTest.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
