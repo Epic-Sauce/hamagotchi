@@ -28,12 +28,13 @@ package
 		{
 			trace("Main init started");
 			removeEventListener(Event.ADDED_TO_STAGE, init);
+			addChild(background);
 			addChild(new Hamster(100, stage.stageHeight - 300));
 			addChild(new Button(500, stage.stageHeight - 150));
 			var myButton:Button = new Button(200, stage.stageHeight - 150);
 			addChild(myButton);
 			myButton.addEventListener(MouseEvent.CLICK, onClickLeft);
-			addChild(background);
+			
 		}
 		
 		function sleep(ms:int):void {
