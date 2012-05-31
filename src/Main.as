@@ -39,9 +39,11 @@ package
 			buttonRight.y = stage.stageHeight - buttonRight.height - 20;
 			buttonRight.x = 200;
 			buttonRight.addEventListener(MouseEvent.CLICK, onClickRight);
+			
+			addEventListener(Event.ENTER_FRAME, loop);
 		}
 		
-		function sleep(ms:int):void {
+		static public function wait(ms:int):void {
 			var init:int = getTimer();
 			while(true) {
 				if(getTimer() - init >= ms) {
@@ -50,6 +52,9 @@ package
 			}
 		}
 		
+		private function loop(e:Event):void {
+			
+		}
 		private function onClickLeft(e:MouseEvent):void 
 		{
 			trace("Main onClickLeft started");
