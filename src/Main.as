@@ -13,7 +13,7 @@ package
 	 */
 	public class Main extends Sprite 
 	{
-		private var background:HamsterCage;
+		private var background:HamsterCage  = new HamsterCage();
 		
 		public function Main():void 
 		{
@@ -25,7 +25,6 @@ package
 		private function init(e:Event = null):void 
 		{
 			trace("Main init started");
-			background = new HamsterCage();
 			addChild(background);
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			addChild(new Hamster(100, stage.stageHeight - 300));
