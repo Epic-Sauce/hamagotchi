@@ -17,7 +17,7 @@ package
 
 		public function Hamster(posX:int, posY:int)
 		{
-			trace("Hamster started")
+			trace("Hamster started");
 			x = posX;
 			y = posY;
 			
