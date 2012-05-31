@@ -50,9 +50,10 @@
   </includeLibraries>
   <!-- SWC Libraries -->
   <libraryPaths>
-    <element path="lib\HamsterCage.swc" />
-    <element path="lib\ButtonTest.swc" />
-    <element path="lib\GameUI.swc" />
+    <element path="lib\buttonTestQuality.swc" />
+    <element path="lib\buttonTest.swc" />
+    <element path="lib\hamsterCage.swc" />
+    <element path="lib\gameUI.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
