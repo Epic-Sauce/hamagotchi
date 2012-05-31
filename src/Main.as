@@ -1,7 +1,6 @@
 package 
 {
 	import flash.display.Bitmap;
-
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
@@ -16,16 +15,6 @@ package
 	{
 		private var background:HamsterCage;
 		
-		[Embed(source = "../lib/hamsterCage.jpg")]
-		private var backgroundClass:Class;
-		private var background:Bitmap = new backgroundClass();
-		//[Embed(source = "../lib/hamsterCage.jpg")]
-		//private var backgroundClass:Class;
-		//private var background:Bitmap = new backgroundClass();
-
-
-		
-
 		public function Main():void 
 		{
 			trace("Main started");
@@ -39,35 +28,11 @@ package
 			background = new HamsterCage();
 			addChild(background);
 			removeEventListener(Event.ADDED_TO_STAGE, init);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 			addChild(new Hamster(100, stage.stageHeight - 300));
 			addChild(new Button(500, stage.stageHeight - 150));
 			var myButton:Button = new Button(200, stage.stageHeight - 150);
 			addChild(myButton);
 			myButton.addEventListener(MouseEvent.CLICK, onClickLeft);
-			addChild(background);
-			//addChild(background);
 		}
 		
 		function sleep(ms:int):void {
