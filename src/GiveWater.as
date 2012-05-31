@@ -6,41 +6,28 @@ package
 	 */
 	public class GiveWater extends Activity 
 	{
+		private var isEmpty:Boolean = false;
 		//this should hold the art asset of the activity. 
 		// should be asset:WaterBottle_asset
 		// would prefer for this to be in Activity but 
 		// each one is a different class.
-		private var asset:int;
+		private var waterBottle:WaterBottle = new WaterBottle();;
 		
 		public function GiveWater() 
 		{
-			/**
-			 * Example:
-			 *	package 
-			 *	{
-			 *	  import flash.display.Sprite;
-			 *	  
-			 *	  public class MySymbol extends Sprite
-			 *	  {
-			 *		private var design:MySymbol_design;
-			 *		
-			 *		public function MySymbol()
-			 *		{
-			 *		  trace("I'm a MySymbol instance called", name);
-			 *		  design = new MySymbol_design();
-			 *		  addChild(design);
-			 *		}
-			 *	  }
-			 *	}
-			 * 
-			 */
-			
-			//each object has a set place in the cage 
-			// so it should hold its own position
-			this.x = 100;
-			this.y = 100;
-			
-			
+			addChild(waterBottle);
+			waterBottle.x = (stage.stageWidth * 0.7);
+			waterBottle.y = (stage.stageHeight * 0.1);
+		}
+		
+		public function setEmpty():void
+		{
+			isEmpty = true;
+		}
+		
+		public function setFull():void
+		{
+			isEmpty = false;
 		}
 		
 	}
