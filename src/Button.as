@@ -11,6 +11,7 @@ package
 		
 		public function Button(posX:int, posY:int) 
 		{	
+			trace("Button started with values " + posX + " and " + posY);
 			x = posX;
 			y = posY;
 			
@@ -22,11 +23,13 @@ package
 		}
 		
 		private function events(e:Event):void {
+			trace("Button events started");
 			addEventListener(MouseEvent.CLICK, onClick);
 			
 		}
 		
 		private function onClick(e:MouseEvent):void {
+			trace(this.name + " onClick received");
 			Hamster.setGoRight();
 		}
 		

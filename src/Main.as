@@ -19,12 +19,14 @@ package
 		
 		public function Main():void 
 		{
+			trace("Main started")
 			if (stage) init();
 			else addEventListener(Event.ADDED_TO_STAGE, init);
 		}
 		
 		private function init(e:Event = null):void 
 		{
+			trace("Main init started")
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			addChild(new Hamster(100, stage.stageHeight - 300));
 			addChild(new Button(500, stage.stageHeight - 150));
@@ -45,6 +47,7 @@ package
 		
 		private function onClickLeft(e:MouseEvent):void 
 		{
+			trace("Main onClickLeft started")
 			Hamster.setGoLeft();
 		}
 		

@@ -17,6 +17,7 @@ package
 
 		public function Hamster(posX:int, posY:int)
 		{
+			trace("Hamster started")
 			x = posX;
 			y = posY;
 			
@@ -44,10 +45,12 @@ package
 			}
 		}
 		static public function setGoRight():void {
+			trace("Setting Hamster goRight to true");
 			goRight = true;
 		}
 		
 		static public function setGoLeft():void {
+			trace("Setting Hamster goLeft to true");
 			goLeft = true;
 		}
 		
