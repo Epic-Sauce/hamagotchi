@@ -34,6 +34,9 @@ package
 			 *	}
 			 * 
 			 */
+			
+			//each object has a set place in the cage 
+			// so it should hold its own position
 			this.x = 100;
 			this.y = 100;
 			
