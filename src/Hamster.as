@@ -14,7 +14,7 @@ package
 		private var color:uint = 0x00FF00;
 		private var goRight:Boolean = false;
 		private var goLeft:Boolean = false;
-		
+		private var hamster:HamsterTest = new HamsterTest();
 
 		public function Hamster(posX:int, posY:int)
 		{
@@ -22,9 +22,9 @@ package
 			x = posX;
 			y = posY;
 			
-			graphics.beginFill(color);
-			graphics.drawCircle(0, 0, 25);
-			graphics.endFill();
+			addChild(hamster);
+			hamster.scaleX = 0.3;
+			hamster.scaleY = 0.3;
 			addEventListener(Event.ENTER_FRAME, loop);
 		}
 		
@@ -38,14 +38,14 @@ package
 		private function loop(e:Event):void {	
 			if (goRight) {
 				x += 5;
-				if (x > stage.stageWidth - width) {
+				if (x > stage.stageWidth - width - 200) {
 					goRight = false;	
 				}
 			}
 			
 			if(goLeft){
 				x -= 5;
-				if (x < (0 + width)) {
+				if (x < (0 + width - 200)) {
 					goLeft = false;
 				}
 			}

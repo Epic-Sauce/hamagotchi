@@ -38,7 +38,7 @@ package
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			addChild(background);
 			addChild(gameUI);
-			hamster = new Hamster(100, stage.stageHeight - 300);
+			hamster = new Hamster(100, 340);
 			addChild(hamster);
 			addChild(buttonLeft);
 			addChild(buttonRight);
@@ -47,7 +47,8 @@ package
 			buttonRight.y = stage.stageHeight - buttonRight.height - 20;
 			buttonRight.x = 200;
 			buttonRight.addEventListener(MouseEvent.CLICK, onClickRight);
-			
+			thoughtBubble.scaleX = 0.5;
+			thoughtBubble.scaleY = 0.5;
 			addEventListener(Event.ENTER_FRAME, loop);
 		
 		}
@@ -55,12 +56,17 @@ package
 		{
 			trace("Main onClickLeft started");
 			hamster.setGoLeft();
+			addChild(thoughtBubble);
+			removeChild(thoughtBubble);
+			counterCheck = true;
 		}
 		
 		private function onClickRight(e:MouseEvent):void
 		{
 			trace("Main onClickLeft started");
 			hamster.setGoRight();
+			addChild(thoughtBubble);
+			removeChild(thoughtBubble);
 			counterCheck = true;
 		}
 		
@@ -74,7 +80,8 @@ package
 					counter = 0;
 					trace("CheckCounter");
 					addChild(thoughtBubble);
-					thoughtBubble.x = hamster.x - 200;
+					thoughtBubble.x = hamster.x + 120;
+					thoughtBubble.y = hamster.y - 180;
 				}
 			}
 		}
