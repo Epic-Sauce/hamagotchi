@@ -7,22 +7,25 @@ package
 	 */
 	public class Activity extends Sprite
 	{
-		//state so the object knows if it should switch to a "needy" state
-		private var state:Boolean = false;
+		//the logic for it to be empty is that if we call
+		// it on the stage, I would expect it to be needed
+		// and thus empty. in the later levels you can call
+		// setFull before you addChild, or set it on new level
+		private var isEmpty:Boolean = true;
 		
 		public function Activity() 
 		{
 			
 		}
 		
-		public function getState():Boolean
+		public function setEmpty():void
 		{
-			return state;
+			isEmpty = true;
 		}
 		
-		public function setState(s:Boolean):void
+		public function setFull():void
 		{
-			state = s;
+			isEmpty = false;
 		}
 		
 	}
