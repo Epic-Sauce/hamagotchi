@@ -28,6 +28,11 @@ package
 			addEventListener(Event.ENTER_FRAME, loop);
 		}
 		
+		public function chooseNeed(lvl:int):void
+		{
+			//choose the need(s) based on lvl.
+			// not sure if the lvl handling should be in here or in main
+		}
 		
 		//Laat de "hamster" heen en weer bewegen tussen bepaalde grensen (aanpassen naar positie van de objecten en knop input)
 		private function loop(e:Event):void {	
