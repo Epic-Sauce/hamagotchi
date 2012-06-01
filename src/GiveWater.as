@@ -14,6 +14,9 @@ package
 		
 		public function GiveWater() 
 		{
+			waterBottle.scaleX = -1;
+			waterBottle.x = 1030;
+			waterBottle.y = -100;
 			addChild(waterBottle);
 		}
 		

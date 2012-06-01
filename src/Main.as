@@ -19,6 +19,7 @@ package
 		private var buttonLeft:ButtonTest = new ButtonTest();
 		private var thoughtBubble:ThoughtBubble = new ThoughtBubble();
 		private var gameUI:GameUI = new GameUI();
+		private var giveWater:GiveWater = new GiveWater();
 		private var counterCheck:Boolean = false;
 		private var counter:int = 0;
 		private var counterMax:int = 210;
@@ -39,6 +40,7 @@ package
 			addChild(background);
 			addChild(gameUI);
 			hamster = new Hamster(100, 340);
+			addChild(giveWater);
 			addChild(hamster);
 			addChild(buttonLeft);
 			addChild(buttonRight);
