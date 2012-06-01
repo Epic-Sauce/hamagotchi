@@ -32,8 +32,7 @@ package
 	{
 		private var hamster:Hamster;
 		private var background:HamsterCage = new HamsterCage();
-		private var buttonRight:ButtonTest = new ButtonTest();
-		private var buttonLeft:ButtonTest = new ButtonTest();
+		private var buttonArray:Array = new Array();
 		private var thoughtBubble:ThoughtBubble = new ThoughtBubble();
 		private var gameUI:GameUI = new GameUI();
 		private var giveWater:GiveWater = new GiveWater();
@@ -59,18 +58,29 @@ package
 			hamster = new Hamster(100, 340);
 			addChild(hamster);
 			addChild(giveWater);
-			addChild(buttonLeft);
-			addChild(buttonRight);
-			buttonLeft.y = stage.stageHeight - buttonLeft.height - 20;
-			buttonLeft.addEventListener(MouseEvent.CLICK, onClickLeft);
-			buttonRight.y = stage.stageHeight - buttonRight.height - 20;
-			buttonRight.x = 200;
-			buttonRight.addEventListener(MouseEvent.CLICK, onClickRight);
+			addButtons(2);
 			thoughtBubble.scaleX = 0.5;
 			thoughtBubble.scaleY = 0.5;
 			addEventListener(Event.ENTER_FRAME, loop);
 		
 		}
+		
+		private function addButtons(amount:int):void
+		{
+			var i:int = 0;
+			while (i < amount)
+			{
+				//i multiplied by 200, for proper spacing
+				var button:Button = new Button();
+				button.x = i * 200;
+				button.y = stage.stageHeight - button.height - 20;
+				button.name = "button" + i;
+				addChild(button);
+				buttonArray.push(button);
+				i++;
+			}
+		}
+		
 		private function onClickLeft(e:MouseEvent):void
 		{
 			trace("Main onClickLeft started");

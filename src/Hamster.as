@@ -28,10 +28,11 @@ package
 			addEventListener(Event.ENTER_FRAME, loop);
 		}
 		
-		public function chooseNeed(lvl:int):void
+		public function chooseNeed(range:int):int
 		{
-			//choose the need(s) based on lvl.
-			// not sure if the lvl handling should be in here or in main
+			//choose the need(s) based on range, so number of different items.
+			var tmp:int = Math.floor((Math.random() * (range + 1)));
+			return tmp;
 		}
 		
 		//Laat de "hamster" heen en weer bewegen tussen bepaalde grensen (aanpassen naar positie van de objecten en knop input)

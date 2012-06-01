@@ -8,21 +8,15 @@ package
 	 */
 	public class Button extends Sprite
 	{
+		private var button:ButtonTest = new ButtonTest();
 		
-		public function Button(posX:int, posY:int) 
+		public function Button() 
 		{	
-			trace("Button started with values " + posX + " and " + posY);
-			x = posX;
-			y = posY;
-			
-			graphics.beginFill(0xFF0000);
-			graphics.drawRect(0,0,50,50)
-			graphics.endFill();
-			this.addEventListener(Event.ADDED_TO_STAGE, events);
-			
+			this.addEventListener(Event.ADDED_TO_STAGE, init);
+			addChild(button);
 		}
 		
-		private function events(e:Event):void {
+		private function init(e:Event):void {
 			trace("Button events started");
 			addEventListener(MouseEvent.CLICK, onClick);
 			
@@ -30,7 +24,6 @@ package
 		
 		private function onClick(e:MouseEvent):void {
 			trace(this.name + " onClick received");
-			Hamster.setGoRight();
 		}
 		
 	}
