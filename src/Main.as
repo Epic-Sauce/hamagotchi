@@ -74,6 +74,7 @@ package
 				var button:Button = new Button();
 				button.x = i * 200;
 				button.y = stage.stageHeight - button.height - 20;
+				button.name = "button" + i;
 				addChild(button);
 				buttonArray.push(button);
 				i++;
