@@ -10,6 +10,23 @@ package
 	/**
 	 * ...
 	 * @author Jeremy Granadillo
+	 * 
+	 * Images constant houden (vb water bottle niet transparant)
+	 * Difficulty, begin met stage click en 1 handeling
+	 * Touchscreen test (maybe)
+	 * 
+	 * TODO
+	 * 
+	 * Menu
+	 * Quit
+	 * Pause
+	 * Random needs
+	 * More Needs
+	 * Levels
+	 * Error check (onclick button)
+	 * Animate
+	 * 
+	 * 
 	 */
 	public class Main extends Sprite
 	{
@@ -40,8 +57,8 @@ package
 			addChild(background);
 			addChild(gameUI);
 			hamster = new Hamster(100, 340);
-			addChild(giveWater);
 			addChild(hamster);
+			addChild(giveWater);
 			addChild(buttonLeft);
 			addChild(buttonRight);
 			buttonLeft.y = stage.stageHeight - buttonLeft.height - 20;
