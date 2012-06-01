@@ -9,23 +9,18 @@ package
 	{
 		//the logic for it to be empty is that if we call
 		// it on the stage, I would expect it to be needed
-		// and thus empty. in the later levels you can call
-		// setFull before you addChild, or set it on new level
-		private var isEmpty:Boolean = true;
+		// and thus not fulfilled. in the later levels you can call
+		// needMet(true) before you addChild, or set it on new level
+		private var isFullfilled:Boolean = false;
 		
 		public function Activity() 
 		{
-			
+			trace(this.name);
 		}
 		
-		public function setEmpty():void
+		public function needMet(bool:Boolean):void
 		{
-			isEmpty = true;
-		}
-		
-		public function setFull():void
-		{
-			isEmpty = false;
+			isFullfilled = bool;
 		}
 		
 	}
