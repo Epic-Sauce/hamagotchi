@@ -37,6 +37,7 @@ package
 		private var gameUI:GameUI = new GameUI();
 		private var giveWater:GiveWater = new GiveWater();
 		private var counterCheck:Boolean = false;
+		private var overlay:Overlay = new Overlay();
 		private var counter:int = 0;
 		private var counterMax:int = 210;
 		
@@ -58,9 +59,10 @@ package
 			hamster = new Hamster(100, 340);
 			addChild(hamster);
 			addChild(giveWater);
+			addChild(overlay);
 			addButtons(2);
 			thoughtBubble.scaleX = 0.5;
-			thoughtBubble.scaleY = 0.5;
+			thoughtBubble.scaleY = 0.5;			
 			addEventListener(Event.ENTER_FRAME, loop);
 		}
 		

@@ -17,6 +17,7 @@ package
 			waterBottle.x = -140;
 			waterBottle.y = -100;
 			addChild(waterBottle);
+			setChildIndex(waterBottle, 0.1)
 		}
 		
 	}
