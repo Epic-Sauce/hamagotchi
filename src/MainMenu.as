@@ -11,14 +11,35 @@ package
 	public class MainMenu extends Sprite
 	{
 		
-		public var playButton:MovieClip = new MovieClip;
+		public var startGame:StartGame_BTN = new StartGame_BTN;
+		public var selectLevel:SelectLevel_BTN = new SelectLevel_BTN;
+		public var options:Options_BTN = new Options_BTN;
+		
+
 		
 		
 		public function MainMenu() 
 		{
-			addChild(playButton);
-			playButton.x = 400;
-			playButton.y = 400;
+			addChild(startGame);
+			addChild(selectLevel);
+			addChild(options);
+			
+			var midAlign:int = (512 - (startGame.width / 2));
+			
+			startGame.x = midAlign;
+			startGame.y = 400;
+			
+			selectLevel.x = midAlign;
+			selectLevel.y = 525;
+			
+			options.x = midAlign;
+			options.y = 650;
+			
+			
+			
+			
+			
+			
 			playButton.addEventListener(MouseEvent.MOUSE_DOWN, initGame)
 		}
 		
