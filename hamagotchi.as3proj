@@ -58,6 +58,7 @@
     <element path="lib\WaterBottle.swc" />
     <element path="lib\hamsterTest.swc" />
     <element path="lib\StartSpel.swc" />
+    <element path="lib\HamagotchiLogo.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
