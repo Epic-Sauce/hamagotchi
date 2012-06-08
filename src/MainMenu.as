@@ -19,7 +19,6 @@ package
 			addChild(playButton);
 			playButton.x = 400;
 			playButton.y = 400;
-			
 			playButton.addEventListener(MouseEvent.MOUSE_DOWN, initGame)
 		}
 		
