@@ -15,12 +15,11 @@ package
 		private var selectLevel:SelectLevel_BTN = new SelectLevel_BTN;
 		private var options:Options_BTN = new Options_BTN;
 		
-
-		
-		
+		private var blurredBG:BackgroundBlurred = new BackgroundBlurred();
+				
 		public function MainMenu() 
 		{
-			
+			addChild(blurredBG);
 			addChild(logo);
 			addChild(startGame);
 			addChild(selectLevel);
@@ -40,13 +39,38 @@ package
 			options.x = midAlign;
 			options.y = 650;
 			
-			startGame.addEventListener(MouseEvent.MOUSE_DOWN, initGame)
+			startGame.addEventListener(MouseEvent.MOUSE_DOWN, initGame);
+			selectLevel.addEventListener(MouseEvent.MOUSE_DOWN, levelSelector);
+			options.addEventListener(MouseEvent.MOUSE_DOWN, optionsScreen);
 		}
 		
-		private function initGame():void
+		private function initGame(e:MouseEvent):void 
+		{
+			dispatchEvent(new Event("startNewGame"));
+			
+			removeChild(blurredBG);
+			removeChild(logo);
+			removeChild(startGame);
+			startGame.removeEventListener(MouseEvent.MOUSE_DOWN, initGame);
+			removeChild(selectLevel);
+			selectLevel.removeEventListener(MouseEvent.MOUSE_DOWN, levelSelector);
+			removeChild(options);
+			options.removeEventListener(MouseEvent.MOUSE_DOWN, optionsScreen);
+			
+			
+		}
+		
+		private function optionsScreen(e:MouseEvent):void 
 		{
 			
 		}
+		
+		private function levelSelector(e:MouseEvent):void 
+		{
+			
+		}
+		
+
 	}
 
 }

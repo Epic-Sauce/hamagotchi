@@ -32,7 +32,7 @@ package
 	{
 		private var hamster:Hamster;
 		private var background:HamsterCage = new HamsterCage();
-		private var blurredBG:BackgroundBlurred = new BackgroundBlurred();
+
 		private var buttonArray:Array = new Array();
 		private var thoughtBubble:ThoughtBubble = new ThoughtBubble();
 		private var gameUI:GameUI = new GameUI();
@@ -42,7 +42,7 @@ package
 		private var counter:int = 0;
 		private var counterMax:int = 30;
 		
-		private var mainMenu:MainMenu = new MainMenu;
+		private var mainMenu:MainMenu = new MainMenu();
 		
 		public function Main():void
 		{
@@ -57,15 +57,17 @@ package
 		{
 			trace("Main init started");
 			removeEventListener(Event.ADDED_TO_STAGE, init);
-			addChild(blurredBG);
+			
 			addChild(mainMenu);
+			mainMenu.addEventListener("startNewGame", gameInit);
 			//gameInit();
 
 		
 		}
 		
-		private function gameInit():void
+		private function gameInit(e:Event):void
 		{
+			mainMenu.removeEventListener("startNewGame", gameInit);
 			addChild(background);
 			addChild(gameUI);
 			hamster = new Hamster(100, 340);
