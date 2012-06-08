@@ -32,6 +32,7 @@ package
 	{
 		private var hamster:Hamster;
 		private var background:HamsterCage = new HamsterCage();
+		private var blurredBG:BackgroundBlurred = new BackgroundBlurred();
 		private var buttonArray:Array = new Array();
 		private var thoughtBubble:ThoughtBubble = new ThoughtBubble();
 		private var gameUI:GameUI = new GameUI();
@@ -56,9 +57,9 @@ package
 		{
 			trace("Main init started");
 			removeEventListener(Event.ADDED_TO_STAGE, init);
-			//addChild(background);
-			//addChild(mainMenu);
-			gameInit();
+			addChild(blurredBG);
+			addChild(mainMenu);
+			//gameInit();
 
 		
 		}

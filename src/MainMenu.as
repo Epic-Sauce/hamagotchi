@@ -10,19 +10,24 @@ package
 	 */
 	public class MainMenu extends Sprite
 	{
-		
-		public var startGame:StartGame_BTN = new StartGame_BTN;
-		public var selectLevel:SelectLevel_BTN = new SelectLevel_BTN;
-		public var options:Options_BTN = new Options_BTN;
+		private var logo:HamagotchiLogo = new HamagotchiLogo;
+		private var startGame:StartGame_BTN = new StartGame_BTN;
+		private var selectLevel:SelectLevel_BTN = new SelectLevel_BTN;
+		private var options:Options_BTN = new Options_BTN;
 		
 
 		
 		
 		public function MainMenu() 
 		{
+			
+			addChild(logo);
 			addChild(startGame);
 			addChild(selectLevel);
 			addChild(options);
+			
+			logo.x = 512 - logo.width / 2;
+			logo.y = 25;
 			
 			var midAlign:int = (512 - (startGame.width / 2));
 			
@@ -35,12 +40,7 @@ package
 			options.x = midAlign;
 			options.y = 650;
 			
-			
-			
-			
-			
-			
-			playButton.addEventListener(MouseEvent.MOUSE_DOWN, initGame)
+			startGame.addEventListener(MouseEvent.MOUSE_DOWN, initGame)
 		}
 		
 		private function initGame():void

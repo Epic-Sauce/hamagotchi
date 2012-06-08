@@ -60,6 +60,7 @@
     <element path="lib\StartSpel.swc" />
     <element path="lib\HamagotchiLogo.swc" />
     <element path="lib\menuButtons.swc" />
+    <element path="lib\backgroundBlurred.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
