@@ -62,7 +62,6 @@ package
 			thoughtBubble.scaleX = 0.5;
 			thoughtBubble.scaleY = 0.5;
 			addEventListener(Event.ENTER_FRAME, loop);
-		
 		}
 		
 		private function addButtons(amount:int):void
