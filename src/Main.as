@@ -41,6 +41,8 @@ package
 		private var counter:int = 0;
 		private var counterMax:int = 210;
 		
+		private var mainMenu:MainMenu = new MainMenu;
+		
 		public function Main():void
 		{
 			trace("Main started");
@@ -55,6 +57,14 @@ package
 			trace("Main init started");
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			addChild(background);
+			addChild(mainMenu);
+			
+
+		
+		}
+		
+		private function gameInit():void
+		{
 			addChild(gameUI);
 			hamster = new Hamster(100, 340);
 			addChild(hamster);
@@ -69,8 +79,9 @@ package
 			thoughtBubble.scaleX = 0.5;
 			thoughtBubble.scaleY = 0.5;
 			addEventListener(Event.ENTER_FRAME, loop);
-		
+			
 		}
+		
 		private function onClickLeft(e:MouseEvent):void
 		{
 			trace("Main onClickLeft started");
