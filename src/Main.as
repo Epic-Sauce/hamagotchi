@@ -56,15 +56,16 @@ package
 		{
 			trace("Main init started");
 			removeEventListener(Event.ADDED_TO_STAGE, init);
-			addChild(background);
-			addChild(mainMenu);
-			
+			//addChild(background);
+			//addChild(mainMenu);
+			gameInit();
 
 		
 		}
 		
 		private function gameInit():void
 		{
+			addChild(background);
 			addChild(gameUI);
 			hamster = new Hamster(100, 340);
 			addChild(hamster);
@@ -122,7 +123,9 @@ package
 					thoughtBubble.x = hamster.x + 120;
 					thoughtBubble.y = hamster.y - 180;
 					//with choseNeed(2) gives a ranges of 3 possibilities
-					hamster.chooseNeed(0);
+					var temp:int = Levels.getLevel();
+					trace(temp);
+					//hamster.chooseNeed(Levels.getButtons[temp]);
 					//done with choseNeed, add icon on top of thoughtBubble
 				}
 			}

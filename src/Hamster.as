@@ -31,6 +31,7 @@ package
 			//choose the need(s) based on range, so number of different items.
 			var need:int = Math.floor((Math.random() * (range + 1)));
 			trace(need);
+			
 			return need;
 		}
 		
