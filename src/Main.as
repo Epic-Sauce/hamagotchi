@@ -36,10 +36,12 @@ package
 		private var thoughtBubble:ThoughtBubble = new ThoughtBubble();
 		private var gameUI:GameUI = new GameUI();
 		private var giveWater:GiveWater = new GiveWater();
-		private var counterCheck:Boolean = false;
+		private var counterCheck:Boolean = true;
 		private var overlay:Overlay = new Overlay();
 		private var counter:int = 0;
-		private var counterMax:int = 210;
+		private var counterMax:int = 30;
+		
+		private var mainMenu:MainMenu = new MainMenu;
 		
 		public function Main():void
 		{
@@ -54,16 +56,26 @@ package
 		{
 			trace("Main init started");
 			removeEventListener(Event.ADDED_TO_STAGE, init);
+			//addChild(background);
+			//addChild(mainMenu);
+			gameInit();
+
+		
+		}
+		
+		private function gameInit():void
+		{
 			addChild(background);
 			addChild(gameUI);
 			hamster = new Hamster(100, 340);
 			addChild(hamster);
 			addChild(giveWater);
 			addChild(overlay);
-			addButtons(2);
+			addButtons(3);
 			thoughtBubble.scaleX = 0.5;
 			thoughtBubble.scaleY = 0.5;			
 			addEventListener(Event.ENTER_FRAME, loop);
+			
 		}
 		
 		private function addButtons(amount:int):void
@@ -85,7 +97,6 @@ package
 		private function onClickLeft(e:MouseEvent):void
 		{
 			trace("Main onClickLeft started");
-			hamster.setGoLeft();
 			addChild(thoughtBubble);
 			removeChild(thoughtBubble);
 			counterCheck = true;
@@ -94,7 +105,6 @@ package
 		private function onClickRight(e:MouseEvent):void
 		{
 			trace("Main onClickLeft started");
-			hamster.setGoRight();
 			addChild(thoughtBubble);
 			removeChild(thoughtBubble);
 			counterCheck = true;
@@ -112,6 +122,11 @@ package
 					addChild(thoughtBubble);
 					thoughtBubble.x = hamster.x + 120;
 					thoughtBubble.y = hamster.y - 180;
+					//with choseNeed(2) gives a ranges of 3 possibilities
+					var temp:int = Levels.getLevel();
+					trace(temp);
+					//hamster.chooseNeed(Levels.getButtons[temp]);
+					//done with choseNeed, add icon on top of thoughtBubble
 				}
 			}
 		}

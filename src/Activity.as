@@ -15,7 +15,6 @@ package
 		
 		public function Activity() 
 		{
-			trace(this.name);
 		}
 		
 		public function needMet(bool:Boolean):void
