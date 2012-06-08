@@ -31,8 +31,8 @@ package
 		public function chooseNeed(range:int):int
 		{
 			//choose the need(s) based on range, so number of different items.
-			var tmp:int = Math.floor((Math.random() * (range + 1)));
-			return tmp;
+			var need:int = Math.floor((Math.random() * (range + 1)));
+			return need;
 		}
 		
 		//Laat de "hamster" heen en weer bewegen tussen bepaalde grensen (aanpassen naar positie van de objecten en knop input)
