@@ -76,6 +76,8 @@ package
 		
 		private function optionsScreen(e:MouseEvent):void 
 		{
+			options.removeEventListener(MouseEvent.MOUSE_DOWN, optionsScreen);
+			
 			removeChild(logo);
 			removeChild(startGame);
 			removeChild(selectLevel);
@@ -89,7 +91,9 @@ package
 			addChild(music_off);
 			music_off.addEventListener(MouseEvent.MOUSE_DOWN, setMusicOff);
 			addChild(soundEffects_on);
+			soundEffects_on.addEventListener(MouseEvent.MOUSE_DOWN, setSoundEffectOn);
 			addChild(soundEffects_off);
+			soundEffects_off.addEventListener(MouseEvent.MOUSE_DOWN, setSoundEffectOff);
 			
 			var midAlign:int = (512 - (music.width / 2));
 			
@@ -114,16 +118,28 @@ package
 			soundEffects_off.alpha = 0.2;
 		}
 		
+		private function setMusicOn(e:MouseEvent):void 
+		{
+			music_off.alpha = 0.2;
+			music_on.alpha = 1;
+		}		
+				
 		private function setMusicOff(e:MouseEvent):void 
 		{
 			music_off.alpha = 1;
 			music_on.alpha = 0.2;
 		}
 		
-		private function setMusicOn(e:MouseEvent):void 
+		private function setSoundEffectOn(e:MouseEvent):void 
 		{
-			music_off.alpha = 0.2;
-			music_on.alpha = 1;
+			soundEffects_off.alpha = 0.2;
+			soundEffects_on.alpha = 1;
+		}
+		
+		private function setSoundEffectOff(e:MouseEvent):void 
+		{
+			soundEffects_off.alpha = 1;
+			soundEffects_on.alpha = 0.2;
 		}
 		
 		private function levelSelector(e:MouseEvent):void 
