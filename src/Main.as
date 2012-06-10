@@ -126,8 +126,8 @@ package
 					thoughtBubble.x = hamster.x + 120;
 					thoughtBubble.y = hamster.y - 180;
 					//with choseNeed(2) gives a ranges of 3 possibilities
-					var temp:int = Levels.getLevel();
-					trace(temp);
+					var lvl:int = Levels.getLevel();
+					trace("Level = " + lvl);
 					//hamster.chooseNeed(Levels.getButtons[temp]);
 					//done with choseNeed, add icon on top of thoughtBubble
 				}

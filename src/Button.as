@@ -4,7 +4,7 @@ package
 	import flash.events.*;
 	/**
 	 * ...
-	 * @author Nigel
+	 * @author Nigel/Jeremy
 	 */
 	public class Button extends Sprite
 	{
@@ -17,7 +17,6 @@ package
 		}
 		
 		private function init(e:Event):void {
-			trace("Button events started");
 			addEventListener(MouseEvent.CLICK, onClick);
 			
 		}
