@@ -61,6 +61,7 @@
     <element path="lib\HamagotchiLogo.swc" />
     <element path="lib\menuButtons.swc" />
     <element path="lib\backgroundBlurred.swc" />
+    <element path="lib\optionsMenu.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
