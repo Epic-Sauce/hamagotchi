@@ -10,7 +10,7 @@ package
 		private static var arrayButtons:Array = new Array (0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5);
 		//0 = water, 1 = food, 2 = wheel, 3 = clean, 4 = tubes
 		private static var arrayNeeds:Array = new Array(0, 1, 2, 3, 4, 5);
-		private static var currentLvl:int = 10;
+		private static var currentLvl:int = 1;
 		
 		public function Levels() 
 		{
