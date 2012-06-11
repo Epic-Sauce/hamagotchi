@@ -77,8 +77,11 @@ package
 			addButtons(Levels.getButtons(Levels.getLevel()));
 			thoughtBubble.scaleX = 0.5;
 			thoughtBubble.scaleY = 0.5;
+			//***********************************
+			//should be addded in different class
 			giveWaterIcon.scaleX = 0.2;
 			giveWaterIcon.scaleY = 0.2;
+			//***********************************
 			addEventListener(Event.ENTER_FRAME, loop);
 		
 		}
