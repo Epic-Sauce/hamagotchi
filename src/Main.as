@@ -74,7 +74,7 @@ package
 			addChild(hamster);
 			addChild(giveWater);
 			addChild(overlay);
-			addButtons(3);
+			addButtons(Levels.getButtons(Levels.getLevel()));
 			thoughtBubble.scaleX = 0.5;
 			thoughtBubble.scaleY = 0.5;			
 			addEventListener(Event.ENTER_FRAME, loop);
@@ -122,14 +122,15 @@ package
 					counterCheck = false;
 					counter = 0;
 					trace("CheckCounter");
+					var lvl:int = Levels.getLevel();
+					trace("Level = " + lvl);
+					var numberOfButtons: int = Levels.getButtons(lvl);
+					//I calculated from 0 to 4, but number of buttons is 1-5 so thats why I added -1
+					hamster.chooseNeed(numberOfButtons-1);
+					//done with choseNeed, add icon on top of thoughtBubble
 					addChild(thoughtBubble);
 					thoughtBubble.x = hamster.x + 120;
 					thoughtBubble.y = hamster.y - 180;
-					//with choseNeed(2) gives a ranges of 3 possibilities
-					var lvl:int = Levels.getLevel();
-					trace("Level = " + lvl);
-					//hamster.chooseNeed(Levels.getButtons[temp]);
-					//done with choseNeed, add icon on top of thoughtBubble
 				}
 			}
 		}
