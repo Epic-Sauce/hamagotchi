@@ -1,7 +1,8 @@
-package  
+package
 {
 	import flash.display.Sprite;
 	import flash.events.*;
+	
 	/**
 	 * ...
 	 * @author Nigel/Jeremy
@@ -9,22 +10,36 @@ package
 	public class Button extends Sprite
 	{
 		private var button:ButtonTest = new ButtonTest();
+		private var need:int = 6;
 		
-		public function Button() 
-		{	
+		public function Button()
+		{
 			this.addEventListener(Event.ADDED_TO_STAGE, init);
 			addChild(button);
 		}
 		
-		private function init(e:Event):void {
+		private function init(e:Event):void
+		{
 			addEventListener(MouseEvent.CLICK, onClick);
-			
+		
 		}
 		
-		private function onClick(e:MouseEvent):void {
+		public function giveNeed(n:int):void {
+			need = n;
+			trace("giveNeed = "+need)
+		}
+		
+		private function onClick(e:MouseEvent):void
+		{
 			trace(this.name + " onClick received");
+			if (this.name == ("button"+need)) {
+				trace("SUCCES FOR NEED: "+need);
+			}
+			else{
+				trace("NO.");
+			}
 		}
-		
+	
 	}
 
 }
