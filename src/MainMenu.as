@@ -4,6 +4,7 @@ package
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
+	import flash.ui.Mouse;
 	
 	/**
 	 * ...
@@ -11,10 +12,13 @@ package
 	 */
 	public class MainMenu extends Sprite
 	{
-		private var logo:HamagotchiLogo = new HamagotchiLogo;
-		private var startGame:StartGame_BTN = new StartGame_BTN;
-		private var selectLevel:SelectLevel_BTN = new SelectLevel_BTN;
-		private var options:Options_BTN = new Options_BTN;
+		public var logo:HamagotchiLogo = new HamagotchiLogo;
+		public var startGame:StartGame_BTN = new StartGame_BTN;
+		public var selectLevel:SelectLevel_BTN = new SelectLevel_BTN;
+		public var options_button:Options_BTN = new Options_BTN;
+		public var back:BackButton_BTN = new BackButton_BTN;
+		
+		private var firstBuild:Boolean = true; 
 		
 		/*options buttons*/
 		private var music:Music_BTN = new Music_BTN;
@@ -23,6 +27,7 @@ package
 		private var music_off:Off_BTN = new Off_BTN;
 		private var soundEffects_on:On_BTN = new On_BTN;
 		private var soundEffects_off:Off_BTN = new Off_BTN;
+		
 		
 		/*Tweens*/
 		
@@ -34,10 +39,35 @@ package
 		public function MainMenu() 
 		{
 			addChild(blurredBG);
+			
+			buildMenu();
+			
+
+			
+		}
+		
+		private function buildMenuME(e:MouseEvent):void
+		{
+			removeChild(options_button);
+			removeChild(music);
+			removeChild(soundEffects);
+			removeChild(music_on);
+			removeChild(music_off);
+			removeChild(soundEffects_on);
+			removeChild(soundEffects_off);
+			removeChild(back);
+				
+			buildMenu();
+			
+			
+		}
+		
+		public function buildMenu():void
+		{
 			addChild(logo);
 			addChild(startGame);
 			addChild(selectLevel);
-			addChild(options);
+			addChild(options_button);
 			
 			logo.x = 512 - logo.width / 2;
 			logo.y = 25;
@@ -50,12 +80,14 @@ package
 			selectLevel.x = midAlign;
 			selectLevel.y = 525;
 			
-			options.x = midAlign;
-			options.y = 650;
+			options_button.x = midAlign;
+			options_button.y = 650;
 			
 			startGame.addEventListener(MouseEvent.MOUSE_DOWN, initGame);
 			selectLevel.addEventListener(MouseEvent.MOUSE_DOWN, levelSelector);
-			options.addEventListener(MouseEvent.MOUSE_DOWN, optionsScreen);
+			options_button.addEventListener(MouseEvent.MOUSE_DOWN, optionsScreen);
+			
+			
 		}
 		
 		private function initGame(e:MouseEvent):void 
@@ -68,21 +100,22 @@ package
 			startGame.removeEventListener(MouseEvent.MOUSE_DOWN, initGame);
 			removeChild(selectLevel);
 			selectLevel.removeEventListener(MouseEvent.MOUSE_DOWN, levelSelector);
-			removeChild(options);
-			options.removeEventListener(MouseEvent.MOUSE_DOWN, optionsScreen);
+			removeChild(options_button);
+			options_button.removeEventListener(MouseEvent.MOUSE_DOWN, optionsScreen);
 			
 			
 		}
 		
 		private function optionsScreen(e:MouseEvent):void 
 		{
-			options.removeEventListener(MouseEvent.MOUSE_DOWN, optionsScreen);
+			options_button.removeEventListener(MouseEvent.MOUSE_DOWN, optionsScreen);
 			
 			removeChild(logo);
 			removeChild(startGame);
 			removeChild(selectLevel);
 			
-			options.y = 200;
+			
+			options_button.y = 200;
 			
 			addChild(music);
 			addChild(soundEffects);
@@ -94,6 +127,9 @@ package
 			soundEffects_on.addEventListener(MouseEvent.MOUSE_DOWN, setSoundEffectOn);
 			addChild(soundEffects_off);
 			soundEffects_off.addEventListener(MouseEvent.MOUSE_DOWN, setSoundEffectOff);
+			addChild(back);
+			back.addEventListener(MouseEvent.MOUSE_DOWN, buildMenuME);
+			
 			
 			var midAlign:int = (512 - (music.width / 2));
 			
@@ -116,6 +152,9 @@ package
 			soundEffects_off.x = 740;
 			soundEffects_off.y = 519;
 			soundEffects_off.alpha = 0.2;
+			
+			back.x = 12;
+			back.y = 670;
 		}
 		
 		private function setMusicOn(e:MouseEvent):void 
@@ -146,6 +185,9 @@ package
 		{
 			
 		}
+		
+
+
 		
 
 	}

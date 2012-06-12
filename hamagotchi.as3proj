@@ -62,6 +62,7 @@
     <element path="lib\backgroundBlurred.swc" />
     <element path="lib\menuButtons.swc" />
     <element path="lib\optionsMenu.swc" />
+    <element path="lib\backButton.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
