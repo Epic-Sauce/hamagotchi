@@ -37,7 +37,7 @@ package
 		private var thoughtBubble:ThoughtBubble = new ThoughtBubble();
 		private var gameUI:GameUI = new GameUI();
 		private var giveWater:GiveWater = new GiveWater();
-		private var giveWaterIcon:GiveWater = new GiveWater();
+		private var hamsterFood:HamsterFood = new HamsterFood();
 		private var counterCheck:Boolean = true;
 		private var overlay:Overlay = new Overlay();
 		private var counter:int = 0;
@@ -45,6 +45,12 @@ package
 		private var need:int;
 		
 		private var mainMenu:MainMenu = new MainMenu();
+		
+		//****Icons
+		private var giveWaterIcon:GiveWater = new GiveWater();
+		private var giveWaterIconB:GiveWater = new GiveWater();
+		private var hamsterFoodIcon:HamsterFood = new HamsterFood();
+		//*********
 		
 		/*Temporary Section*/
 		private var hamsterAni:HamsterIdle = new HamsterIdle();
@@ -90,6 +96,10 @@ package
 			//should be addded in different class
 			giveWaterIcon.scaleX = 0.2;
 			giveWaterIcon.scaleY = 0.2;
+			giveWaterIconB.scaleX = 0.2;
+			giveWaterIconB.scaleY = 0.2;
+			hamsterFoodIcon.scaleX = 0.4;
+			hamsterFoodIcon.scaleY = 0.4;
 			//***********************************
 			addEventListener(Event.ENTER_FRAME, loop);
 		
@@ -107,6 +117,33 @@ package
 				button.name = "button" + i;
 				addChild(button);
 				buttonArray.push(button);
+				
+				switch (i){
+					case 0:
+						addChild(giveWaterIconB);
+						giveWaterIconB.mouseEnabled = false;
+						giveWaterIconB.mouseChildren = false;
+						giveWaterIconB.x = button.x + 85;
+						giveWaterIconB.y = button.y + 35;
+					break;
+					case 1:
+						addChild(hamsterFoodIcon);
+						hamsterFoodIcon.mouseEnabled = false;
+						hamsterFoodIcon.mouseChildren = false;
+						hamsterFoodIcon.x = button.x + 30;
+						hamsterFoodIcon.y = button.y + 35;
+					break;
+					case 2:
+						//addChild(giveWaterIcon);
+					break;
+					case 3:
+						//addChild(giveWaterIcon);
+					break;
+					case 4:
+						//addChild(giveWaterIcon);
+					break;
+				}
+				
 				i++;
 			}
 		}
