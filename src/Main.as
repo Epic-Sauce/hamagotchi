@@ -1,10 +1,12 @@
 package
 {
 	import flash.display.Bitmap;
+	import flash.display.DisplayObject;
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
+	import fl.livepreview.LivePreviewParent;
 	
 	import flash.utils.getTimer;
 	
@@ -53,7 +55,12 @@ package
 		//*********
 		
 		/*Temporary Section*/
-		private var hamsterAni:HamsterIdle = new HamsterIdle();
+		//[Embed(source = "../lib/hamsterIdleAnimation.swf", symbol = "HamsterIdle")]
+		//[Embed(source="../lib/hamsterIdleAnimationGood.swf")]
+		//private var Test:Class;
+		//private var iets:MovieClip = new Test() as MovieClip;
+		
+		//private var hamster2:HamsterIdle = new HamsterIdle;
 		
 		public function Main():void
 		{
@@ -71,13 +78,9 @@ package
 			
 			addChild(mainMenu);
 			mainMenu.addEventListener("startNewGame", gameInit);
-			//gameInit();
 			
-			addChild(hamsterAni);
-			hamsterAni.play();
-			
-			
-		
+			//addChild(iets);
+			//iets.x = -300;
 		}
 		
 		private function gameInit(e:Event):void
