@@ -141,40 +141,37 @@ package
 					//NOT PROPER SOLUTION, NEED TO ADD TO DIFFERENT CLASS
 					//TESTING PURPOSES ONLY
 					//***************************************************
-					if (need == 0)
-					{
-						addChild(giveWaterIcon);
-						giveWaterIcon.x = thoughtBubble.x + 90;
-						giveWaterIcon.y = thoughtBubble.y + 30;
-						trace("added water");
-					}
-					if (need == 1)
-					{
-						addChild(giveWaterIcon);
-						giveWaterIcon.x = thoughtBubble.x + 90;
-						giveWaterIcon.y = thoughtBubble.y + 30;
-						trace("added food");
-					}
-					if (need == 2)
-					{
-						addChild(giveWaterIcon);
-						giveWaterIcon.x = thoughtBubble.x + 90;
-						giveWaterIcon.y = thoughtBubble.y + 30;
-						trace("added wheel");
-					}
-					if (need == 3)
-					{
-						addChild(giveWaterIcon);
-						giveWaterIcon.x = thoughtBubble.x + 90;
-						giveWaterIcon.y = thoughtBubble.y + 30;
-						trace("added clean");
-					}
-					if (need == 4)
-					{
-						addChild(giveWaterIcon);
-						giveWaterIcon.x = thoughtBubble.x + 90;
-						giveWaterIcon.y = thoughtBubble.y + 30;
-						trace("added tubes");
+					switch (need){
+						case 0:
+							addChild(giveWaterIcon);
+							giveWaterIcon.x = thoughtBubble.x + 90;
+							giveWaterIcon.y = thoughtBubble.y + 30;
+							trace("added water");
+						break;
+						case 1:
+							addChild(giveWaterIcon);
+							giveWaterIcon.x = thoughtBubble.x + 90;
+							giveWaterIcon.y = thoughtBubble.y + 30;
+							trace("added food");
+						break;
+						case 2:
+							addChild(giveWaterIcon);
+							giveWaterIcon.x = thoughtBubble.x + 90;
+							giveWaterIcon.y = thoughtBubble.y + 30;
+							trace("added wheel");
+						break;
+						case 3:
+							addChild(giveWaterIcon);
+							giveWaterIcon.x = thoughtBubble.x + 90;
+							giveWaterIcon.y = thoughtBubble.y + 30;
+							trace("added clean");
+						break;
+						case 4:
+							addChild(giveWaterIcon);
+							giveWaterIcon.x = thoughtBubble.x + 90;
+							giveWaterIcon.y = thoughtBubble.y + 30;
+							trace("added tubes");
+						break;
 					}
 					//***************************************************
 				}
