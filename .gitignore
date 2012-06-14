@@ -1,2 +1,4 @@
 bin/
 Thumbs.db
+/obj/hamagotchiConfig.old
+/obj/hamagotchiConfig.xml
