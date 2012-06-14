@@ -64,6 +64,7 @@
     <element path="lib\optionsMenu.swc" />
     <element path="lib\backButton.swc" />
     <element path="lib\hamsterIdleAnimation.swc" />
+    <element path="hamsterIdleAnimation.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
@@ -80,6 +81,9 @@
   <!-- Assets to embed into the output SWF -->
   <library>
     <asset path="lib\24 - X-Ray Dog - Pixie Dust.mp3" />
+    <asset path="lib\hamsterIdleAnimation.swf" />
+    <asset path="lib\hamsterIdleAnimation - Copy.swf" />
+    <asset path="lib\hamsterIdleAnimationGood.swf" />
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
