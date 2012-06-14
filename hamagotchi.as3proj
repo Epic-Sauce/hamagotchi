@@ -63,6 +63,7 @@
     <element path="lib\menuButtons.swc" />
     <element path="lib\optionsMenu.swc" />
     <element path="lib\backButton.swc" />
+    <element path="lib\hamsterIdleAnimation.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
@@ -78,7 +79,7 @@
   </intrinsics>
   <!-- Assets to embed into the output SWF -->
   <library>
-    <!-- example: <asset path="..." id="..." update="..." glyphs="..." mode="..." place="..." sharepoint="..." /> -->
+    <asset path="lib\24 - X-Ray Dog - Pixie Dust.mp3" />
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>

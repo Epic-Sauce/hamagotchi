@@ -16,7 +16,7 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'6/13/2012'</value>
+      <value>'6/14/2012'</value>
     </define>
     <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
@@ -36,6 +36,7 @@
       <path-element>C:\Users\Antonie\Documents\GitHub\hamagotchi\lib\menuButtons.swc</path-element>
       <path-element>C:\Users\Antonie\Documents\GitHub\hamagotchi\lib\optionsMenu.swc</path-element>
       <path-element>C:\Users\Antonie\Documents\GitHub\hamagotchi\lib\backButton.swc</path-element>
+      <path-element>C:\Users\Antonie\Documents\GitHub\hamagotchi\lib\hamsterIdleAnimation.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>

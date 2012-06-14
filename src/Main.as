@@ -1,6 +1,7 @@
 package
 {
 	import flash.display.Bitmap;
+	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
@@ -45,6 +46,9 @@ package
 		
 		private var mainMenu:MainMenu = new MainMenu();
 		
+		/*Temporary Section*/
+		private var hamsterAni:HamsterIdle = new HamsterIdle as MovieClip;
+		
 		public function Main():void
 		{
 			trace("Main started");
@@ -62,6 +66,11 @@ package
 			addChild(mainMenu);
 			mainMenu.addEventListener("startNewGame", gameInit);
 			//gameInit();
+			
+			addChild(hamsterAni);
+			hamsterAni.play();
+			
+			
 		
 		}
 		

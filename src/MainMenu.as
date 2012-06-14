@@ -1,4 +1,4 @@
-package  
+package
 {
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
@@ -18,7 +18,7 @@ package
 		public var options_button:Options_BTN = new Options_BTN;
 		public var back:BackButton_BTN = new BackButton_BTN;
 		
-		private var firstBuild:Boolean = true; 
+		private var firstBuild:Boolean = true;
 		
 		/*options buttons*/
 		private var music:Music_BTN = new Music_BTN;
@@ -32,23 +32,20 @@ package
 		private var musicState:Boolean = true;
 		private var effectState:Boolean = true;
 		
-		
+
 		
 		/*Tweens*/
 		
-				
-		
-		
 		private var blurredBG:BackgroundBlurred = new BackgroundBlurred();
-				
-		public function MainMenu() 
+		
+		public function MainMenu()
 		{
 			addChild(blurredBG);
 			
 			buildMenu();
 			
-
 			
+		
 		}
 		
 		private function buildMenuME(e:MouseEvent):void
@@ -61,10 +58,9 @@ package
 			removeChild(soundEffects_on);
 			removeChild(soundEffects_off);
 			removeChild(back);
-				
+			
 			buildMenu();
-			
-			
+		
 		}
 		
 		public function buildMenu():void
@@ -91,11 +87,10 @@ package
 			startGame.addEventListener(MouseEvent.MOUSE_DOWN, initGame);
 			selectLevel.addEventListener(MouseEvent.MOUSE_DOWN, levelSelector);
 			options_button.addEventListener(MouseEvent.MOUSE_DOWN, optionsScreen);
-			
-			
+		
 		}
 		
-		private function initGame(e:MouseEvent):void 
+		private function initGame(e:MouseEvent):void
 		{
 			dispatchEvent(new Event("startNewGame"));
 			
@@ -107,18 +102,16 @@ package
 			selectLevel.removeEventListener(MouseEvent.MOUSE_DOWN, levelSelector);
 			removeChild(options_button);
 			options_button.removeEventListener(MouseEvent.MOUSE_DOWN, optionsScreen);
-			
-			
+		
 		}
 		
-		private function optionsScreen(e:MouseEvent):void 
+		private function optionsScreen(e:MouseEvent):void
 		{
 			options_button.removeEventListener(MouseEvent.MOUSE_DOWN, optionsScreen);
 			
 			removeChild(logo);
 			removeChild(startGame);
 			removeChild(selectLevel);
-			
 			
 			options_button.y = 200;
 			
@@ -135,7 +128,6 @@ package
 			addChild(back);
 			back.addEventListener(MouseEvent.MOUSE_DOWN, buildMenuME);
 			
-			
 			var midAlign:int = (512 - (music.width / 2));
 			
 			music.x = midAlign;
@@ -146,7 +138,7 @@ package
 			
 			music_off.x = 740;
 			music_off.y = 394;
-						
+			
 			soundEffects.x = midAlign;
 			soundEffects.y = 485;
 			
@@ -185,46 +177,42 @@ package
 				soundEffects_on.alpha = 0.2;
 				
 			}
-			
+		
 		}
 		
-		private function setMusicOn(e:MouseEvent):void 
+		private function setMusicOn(e:MouseEvent):void
 		{
 			music_off.alpha = 0.2;
 			music_on.alpha = 1;
 			musicState = true;
-		}		
-				
-		private function setMusicOff(e:MouseEvent):void 
+		}
+		
+		private function setMusicOff(e:MouseEvent):void
 		{
 			music_off.alpha = 1;
 			music_on.alpha = 0.2;
 			musicState = false;
 		}
 		
-		private function setSoundEffectOn(e:MouseEvent):void 
+		private function setSoundEffectOn(e:MouseEvent):void
 		{
 			soundEffects_off.alpha = 0.2;
 			soundEffects_on.alpha = 1;
 			effectState = true;
 		}
 		
-		private function setSoundEffectOff(e:MouseEvent):void 
+		private function setSoundEffectOff(e:MouseEvent):void
 		{
 			soundEffects_off.alpha = 1;
 			soundEffects_on.alpha = 0.2;
 			effectState = false;
 		}
 		
-		private function levelSelector(e:MouseEvent):void 
+		private function levelSelector(e:MouseEvent):void
 		{
-			
+		
 		}
-		
-
-
-		
-
+	
 	}
 
 }
