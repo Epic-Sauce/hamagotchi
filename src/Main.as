@@ -54,13 +54,7 @@ package
 		private var hamsterFoodIcon:HamsterFood = new HamsterFood();
 		//*********
 		
-		/*Temporary Section*/
-		//[Embed(source = "../lib/hamsterIdleAnimation.swf", symbol = "HamsterIdle")]
-		//[Embed(source="../lib/hamsterIdleAnimationGood.swf")]
-		//private var Test:Class;
-		//private var iets:MovieClip = new Test() as MovieClip;
-		
-		//private var hamster2:HamsterIdle = new HamsterIdle;
+
 		
 		public function Main():void
 		{
@@ -79,8 +73,7 @@ package
 			addChild(mainMenu);
 			mainMenu.addEventListener("startNewGame", gameInit);
 			
-			//addChild(iets);
-			//iets.x = -300;
+		
 		}
 		
 		private function gameInit(e:Event):void
@@ -88,17 +81,17 @@ package
 			mainMenu.removeEventListener("startNewGame", gameInit);
 			addChild(background);
 			addChild(gameUI);
-			hamster = new Hamster(100, 340);
+			hamster = new Hamster(200, 500);
 			addChild(hamster);
 			addChild(giveWater);
 			addChild(overlay);
 			addButtons(Levels.getButtons(Levels.getLevel()));
-			thoughtBubble.scaleX = 0.5;
-			thoughtBubble.scaleY = 0.5;
+			thoughtBubble.scaleX = 0.7;
+			thoughtBubble.scaleY = 0.7;
 			//***********************************
 			//should be addded in different class
-			giveWaterIcon.scaleX = 0.2;
-			giveWaterIcon.scaleY = 0.2;
+			giveWaterIcon.scaleX = 0.275;
+			giveWaterIcon.scaleY = 0.275;
 			giveWaterIconB.scaleX = 0.2;
 			giveWaterIconB.scaleY = 0.2;
 			hamsterFoodIcon.scaleX = 0.4;
@@ -170,8 +163,8 @@ package
 					need = hamster.chooseNeed(numberOfButtons - 1);
 					//done with choseNeed, add icon on top of thoughtBubble
 					addChild(thoughtBubble);
-					thoughtBubble.x = hamster.x + 120;
-					thoughtBubble.y = hamster.y - 180;
+					thoughtBubble.x = hamster.x + 70;
+					thoughtBubble.y = hamster.y - 350;
 					buttonArray[need].giveNeed(need);
 					
 					//***************************************************
@@ -181,8 +174,8 @@ package
 					switch (need){
 						case 0:
 							addChild(giveWaterIcon);
-							giveWaterIcon.x = thoughtBubble.x + 90;
-							giveWaterIcon.y = thoughtBubble.y + 30;
+							giveWaterIcon.x = thoughtBubble.x + 133;
+							giveWaterIcon.y = thoughtBubble.y + 45;
 							trace("added water");
 						break;
 						case 1:

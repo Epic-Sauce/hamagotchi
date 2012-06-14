@@ -1,5 +1,6 @@
 package
 {
+	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.KeyboardEvent;
@@ -12,6 +13,11 @@ package
 	public class Hamster extends Sprite
 	{
 		private var color:uint = 0x00FF00;
+		
+		[Embed(source="../lib/hamsterIdleAnimation.swf", symbol="HamsterIdle")]
+		private var HamsterIdle:Class;
+		private var hamster_Idle:MovieClip = new HamsterIdle() as MovieClip;
+		
 		private var hamster:HamsterTest = new HamsterTest();
 
 		public function Hamster(posX:int, posY:int)
@@ -20,9 +26,9 @@ package
 			x = posX;
 			y = posY;
 			
-			addChild(hamster);
-			hamster.scaleX = 0.3;
-			hamster.scaleY = 0.3;
+			addChild(hamster_Idle);
+			hamster_Idle.scaleX = 0.85;
+			hamster_Idle.scaleY = 0.85;
 			addEventListener(Event.ENTER_FRAME, loop);
 		}
 		
