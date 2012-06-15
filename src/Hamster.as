@@ -29,6 +29,7 @@ package
 			addChild(hamster_Idle);
 			hamster_Idle.scaleX = 0.85;
 			hamster_Idle.scaleY = 0.85;
+			hamster_Idle.play();
 			addEventListener(Event.ENTER_FRAME, loop);
 		}
 		
