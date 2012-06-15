@@ -29,6 +29,11 @@ package
 			return arrayNeeds[lvl];
 		}
 		
+		public static function getMaxLevel():int
+		{
+			return arrayButtons.length;
+		}
+		
 		public static function getLevel():int
 		{
 			return currentLvl;

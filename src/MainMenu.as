@@ -230,7 +230,20 @@ package
 		
 		private function levelSelector(e:MouseEvent):void
 		{
-		
+			levelSelector.removeEventListener(MouseEvent.MOUSE_DOWN, levelSelector);
+			
+			removeChild(logo);
+			removeChild(startGame);
+			removeChild(options_button);
+			var maxLevel:int = Levels.getMaxLevel();
+			var i:int  = 0;
+			while ( i < maxLevel)
+			{
+				// MAKE BUTTONS HERE
+				
+				// MAKE EVENT LISTENER HERE
+				i++;
+			}
 		}
 	
 	}
