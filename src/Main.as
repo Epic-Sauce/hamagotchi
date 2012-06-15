@@ -7,6 +7,7 @@ package
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import fl.livepreview.LivePreviewParent;
+	import flash.media.Sound;
 	
 	import flash.utils.getTimer;
 	
@@ -57,6 +58,8 @@ package
 		
 
 		
+
+		
 		public function Main():void
 		{
 			trace("Main started");
@@ -73,7 +76,7 @@ package
 			
 			addChild(mainMenu);
 			mainMenu.addEventListener("startNewGame", gameInit);
-			
+
 		
 		}
 		

@@ -4,6 +4,7 @@ package
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
+	import flash.media.Sound;
 	import flash.ui.Mouse;
 	
 	/**
@@ -32,9 +33,13 @@ package
 		private var musicState:Boolean = true;
 		private var effectState:Boolean = true;
 		
-
+		/*music*/
+		[Embed(source="../lib/mainMenu.mp3")]
+		private var mySound:Class;
+		private var menuMusic:Sound;
 		
 		/*Tweens*/
+
 		
 		private var blurredBG:BackgroundBlurred = new BackgroundBlurred();
 		
@@ -43,6 +48,7 @@ package
 			addChild(blurredBG);
 			
 			buildMenu();
+
 			
 			
 		
@@ -87,6 +93,17 @@ package
 			startGame.addEventListener(MouseEvent.MOUSE_DOWN, initGame);
 			selectLevel.addEventListener(MouseEvent.MOUSE_DOWN, levelSelector);
 			options_button.addEventListener(MouseEvent.MOUSE_DOWN, optionsScreen);
+			
+			if (musicState == true)
+			{
+				menuMusic = new mySound as Sound;
+				menuMusic.play();
+
+			}
+			if (musicState == false)
+			{
+				menuMusic.stop();
+			}
 		
 		}
 		
