@@ -51,13 +51,9 @@ package
 			addChild(blurredBG);
 			
 			buildMenu();
-
-			
-			
-		
 		}
 		
-		private function buildMenuME(e:MouseEvent):void
+		private function buildMenuOP(e:MouseEvent):void
 		{
 			removeChild(options_button);
 			removeChild(music);
@@ -66,6 +62,21 @@ package
 			removeChild(music_off);
 			removeChild(soundEffects_on);
 			removeChild(soundEffects_off);
+			
+			back.removeEventListener(MouseEvent.MOUSE_DOWN, buildMenuOP);
+			buildMenuME();
+		}
+		
+		private function buildMenuLV(e:MouseEvent):void
+		{
+			removeChild(selectLevel);
+			
+			back.removeEventListener(MouseEvent.MOUSE_DOWN, buildMenuLV);
+			buildMenuME();
+		}
+		
+		private function buildMenuME():void
+		{
 			removeChild(back);
 			
 			buildMenu();
@@ -146,7 +157,7 @@ package
 			addChild(soundEffects_off);
 			soundEffects_off.addEventListener(MouseEvent.MOUSE_DOWN, setSoundEffectOff);
 			addChild(back);
-			back.addEventListener(MouseEvent.MOUSE_DOWN, buildMenuME);
+			back.addEventListener(MouseEvent.MOUSE_DOWN, buildMenuOP);
 			
 			var midAlign:int = (512 - (music.width / 2));
 			
@@ -232,9 +243,15 @@ package
 		{
 			selectLevel.removeEventListener(MouseEvent.MOUSE_DOWN, levelSelector);
 			
+			selectLevel.y = 200;
+			
 			removeChild(logo);
 			removeChild(startGame);
 			removeChild(options_button);
+			
+			addChild(back);
+			back.addEventListener(MouseEvent.MOUSE_DOWN, buildMenuLV);
+			
 			var maxLevel:int = Levels.getMaxLevel();
 			var i:int  = 0;
 			while ( i < maxLevel)
