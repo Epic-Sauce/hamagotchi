@@ -119,11 +119,11 @@ package
 				
 				switch (i){
 					case 0:
-						addChild(giveWaterBubble);
-						giveWaterBubble.mouseEnabled = false;
-						giveWaterBubble.mouseChildren = false;
-						giveWaterBubble.x = button.x + 85;
-						giveWaterBubble.y = button.y + 35;
+						addChild(giveWaterButton);
+						giveWaterButton.mouseEnabled = false;
+						giveWaterButton.mouseChildren = false;
+						giveWaterButton.x = button.x + 85;
+						giveWaterButton.y = button.y + 35;
 					break;
 					case 1:
 						addChild(hamsterFoodButton);
@@ -176,9 +176,9 @@ package
 					//***************************************************
 					switch (need){
 						case 0:
-							addChild(giveWaterButton);
-							giveWaterButton.x = thoughtBubble.x + 133;
-							giveWaterButton.y = thoughtBubble.y + 45;
+							addChild(giveWaterBubble);
+							giveWaterBubble.x = thoughtBubble.x + 133;
+							giveWaterBubble.y = thoughtBubble.y + 45;
 							trace("added water");
 						break;
 						case 1:
