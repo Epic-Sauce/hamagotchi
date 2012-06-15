@@ -5,6 +5,7 @@ package
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import flash.media.Sound;
+	import flash.media.SoundChannel;
 	import flash.ui.Mouse;
 	
 	/**
@@ -37,6 +38,8 @@ package
 		[Embed(source="../lib/mainMenu.mp3")]
 		private var mySound:Class;
 		private var menuMusic:Sound;
+		
+		private var menuMusicSound:SoundChannel;
 		
 		/*Tweens*/
 
@@ -97,12 +100,12 @@ package
 			if (musicState == true)
 			{
 				menuMusic = new mySound as Sound;
-				menuMusic.play();
+				menuMusicSound = menuMusic.play();
 
 			}
 			if (musicState == false)
 			{
-				menuMusic.stop();
+				menuMusicSound.stop();
 			}
 		
 		}
