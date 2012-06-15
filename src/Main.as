@@ -91,10 +91,10 @@ package
 			thoughtBubble.scaleY = 0.7;
 			//***********************************
 			//should be addded in different class
-			giveWaterButton.scaleX = 0.275;
-			giveWaterButton.scaleY = 0.275;
-			giveWaterBubble.scaleX = 0.2;
-			giveWaterBubble.scaleY = 0.2;
+			giveWaterBubble.scaleX = 0.275;
+			giveWaterBubble.scaleY = 0.275;
+			giveWaterButton.scaleX = 0.2;
+			giveWaterButton.scaleY = 0.2;
 			hamsterFoodBubble.scaleX = 0.45;
 			hamsterFoodBubble.scaleY = 0.45;
 			hamsterFoodButton.scaleX = 0.4;

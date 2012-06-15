@@ -10,7 +10,7 @@ package
 	public class Button extends Sprite
 	{
 		private var button:ButtonTest = new ButtonTest();
-		private var need:int = 6;
+		private var need:int;
 		
 		public function Button()
 		{
