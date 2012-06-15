@@ -84,12 +84,18 @@ package
 		{
 			mainMenu.removeEventListener("startNewGame", gameInit);
 			addChild(background);
-			addChild(gameUI);
-			hamster = new Hamster(200, 500);
+			hamster = new Hamster(200, 450);
 			addChild(hamster);
+			addChild(hamsterFood);
 			addChild(giveWater);
+			addChild(gameUI);
 			addChild(overlay);
 			addButtons(Levels.getButtons(Levels.getLevel()));
+			//Sizes and position
+			hamsterFood.x = 750;
+			hamsterFood.y = 420;
+			hamsterFood.scaleX = 0.8;
+			hamsterFood.scaleY = 0.8;
 			thoughtBubble.scaleX = 0.7;
 			thoughtBubble.scaleY = 0.7;
 			//***********************************
