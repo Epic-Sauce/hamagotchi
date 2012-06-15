@@ -51,6 +51,7 @@ package
 		//****Icons
 		private var giveWaterIcon:GiveWater = new GiveWater();
 		private var giveWaterIconB:GiveWater = new GiveWater();
+		private var hamsterFoodB:HamsterFood = new HamsterFood();
 		private var hamsterFoodIcon:HamsterFood = new HamsterFood();
 		//*********
 		
@@ -94,6 +95,8 @@ package
 			giveWaterIcon.scaleY = 0.275;
 			giveWaterIconB.scaleX = 0.2;
 			giveWaterIconB.scaleY = 0.2;
+			hamsterFoodB.scaleX = 0.45;
+			hamsterFoodB.scaleY = 0.45;
 			hamsterFoodIcon.scaleX = 0.4;
 			hamsterFoodIcon.scaleY = 0.4;
 			//***********************************
@@ -179,9 +182,9 @@ package
 							trace("added water");
 						break;
 						case 1:
-							addChild(giveWaterIcon);
-							giveWaterIcon.x = thoughtBubble.x + 90;
-							giveWaterIcon.y = thoughtBubble.y + 30;
+							addChild(hamsterFoodB);
+							hamsterFoodB.x = thoughtBubble.x + 70;
+							hamsterFoodB.y = thoughtBubble.y + 50;
 							trace("added food");
 						break;
 						case 2:
