@@ -230,7 +230,7 @@ package
 		
 		private function levelSelector(e:MouseEvent):void
 		{
-			levelSelector.removeEventListener(MouseEvent.MOUSE_DOWN, levelSelector);
+			selectLevel.removeEventListener(MouseEvent.MOUSE_DOWN, levelSelector);
 			
 			removeChild(logo);
 			removeChild(startGame);
