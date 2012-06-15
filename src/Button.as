@@ -11,9 +11,11 @@ package
 	{
 		private var button:ButtonTest = new ButtonTest();
 		private var need:int;
+		private var m:Main;
 		
-		public function Button()
+		public function Button(m:Main)
 		{
+			this.m = m;
 			this.addEventListener(Event.ADDED_TO_STAGE, init);
 			addChild(button);
 		}

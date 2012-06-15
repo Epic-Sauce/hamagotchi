@@ -119,7 +119,7 @@ package
 			while (i < amount)
 			{
 				//i multiplied by 200, for proper spacing
-				var button:Button = new Button();
+				var button:Button = new Button(this);
 				button.x = i * 200;
 				button.y = stage.stageHeight - button.height - 20;
 				button.name = "button" + i;
