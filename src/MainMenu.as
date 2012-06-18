@@ -41,6 +41,22 @@ package
 		
 		private var menuMusicSound:SoundChannel;
 		
+		// level buttons
+		//  what follows is ugly but it's simple and it works
+		private var lvl1 : Lvl1 = new Lvl1;
+		private var lvl2 : Lvl2 = new Lvl2;
+		private var lvl3 : Lvl3 = new Lvl3;
+		private var lvl4 : Lvl4 = new Lvl4;
+		private var lvl5 : Lvl5 = new Lvl5;
+		private var lvl6 : Lvl6 = new Lvl6;
+		private var lvl7 : Lvl7 = new Lvl7;
+		private var lvl8 : Lvl8 = new Lvl8;
+		private var lvl9 : Lvl9 = new Lvl9;
+		private var lvl10 : Lvl10 = new Lvl10;
+		private var lvl11 : Lvl11 = new Lvl11;
+		private var lvl12 : Lvl12 = new Lvl12;
+		private var levels:Array = new Array(lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, lvl9, lvl10, lvl11, lvl12);
+		
 		/*Tweens*/
 
 		
@@ -249,18 +265,39 @@ package
 			removeChild(startGame);
 			removeChild(options_button);
 			
+			back.x = 12;
+			back.y = 670;
+			
 			addChild(back);
 			back.addEventListener(MouseEvent.MOUSE_DOWN, buildMenuLV);
 			
-			var maxLevel:int = Levels.getMaxLevel();
-			var i:int  = 0;
+			var maxLevel:int = Levels.getMaxLevel() - 1;
+			var i:int = 0;
+			var j:int = 0;
+			var k:int = 0;
+			
 			while ( i < maxLevel)
 			{
-				// MAKE BUTTONS HERE
+				levels[i].x = (j * 130) + 265;
+				j++;
 				
-				// MAKE EVENT LISTENER HERE
+				levels[i].y = (k * 115) + 320;
+				if (j > 3)
+				{
+					j = 0;
+					k++;
+				}
+				addChild(levels[i]);
+				levels[i].label = (i+1);
+				levels[i].addEventListener(MouseEvent.MOUSE_DOWN, lvlSelect);
 				i++;
 			}
+		}
+		
+		private function lvlSelect(event:MouseEvent):void
+		{
+			var theLevel:int = event.target.label;
+			Levels.setLevel(theLevel);
 		}
 	
 	}

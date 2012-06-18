@@ -39,8 +39,9 @@ package
 			return currentLvl;
 		}
 		
-		private static function setLevel(lvl:int):void
+		public static function setLevel(lvl:int):void
 		{
+			trace("Setting level " + lvl);
 			currentLvl = lvl;
 		}
 	}
