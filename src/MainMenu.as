@@ -43,23 +43,22 @@ package
 		
 		// level buttons
 		//  what follows is ugly but it's simple and it works
-		private var lvl1 : Lvl1 = new Lvl1;
-		private var lvl2 : Lvl2 = new Lvl2;
-		private var lvl3 : Lvl3 = new Lvl3;
-		private var lvl4 : Lvl4 = new Lvl4;
-		private var lvl5 : Lvl5 = new Lvl5;
-		private var lvl6 : Lvl6 = new Lvl6;
-		private var lvl7 : Lvl7 = new Lvl7;
-		private var lvl8 : Lvl8 = new Lvl8;
-		private var lvl9 : Lvl9 = new Lvl9;
-		private var lvl10 : Lvl10 = new Lvl10;
-		private var lvl11 : Lvl11 = new Lvl11;
-		private var lvl12 : Lvl12 = new Lvl12;
+		private var lvl1:Lvl1 = new Lvl1;
+		private var lvl2:Lvl2 = new Lvl2;
+		private var lvl3:Lvl3 = new Lvl3;
+		private var lvl4:Lvl4 = new Lvl4;
+		private var lvl5:Lvl5 = new Lvl5;
+		private var lvl6:Lvl6 = new Lvl6;
+		private var lvl7:Lvl7 = new Lvl7;
+		private var lvl8:Lvl8 = new Lvl8;
+		private var lvl9:Lvl9 = new Lvl9;
+		private var lvl10:Lvl10 = new Lvl10;
+		private var lvl11:Lvl11 = new Lvl11;
+		private var lvl12:Lvl12 = new Lvl12;
 		private var levels:Array = new Array(lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, lvl9, lvl10, lvl11, lvl12);
 		
 		private var menuB:Boolean = true;
 		private var maxLevel:int = Levels.getMaxLevel() - 1;
-
 		
 		private var blurredBG:BackgroundBlurred = new BackgroundBlurred();
 		
@@ -73,18 +72,16 @@ package
 		private function buildMenuOP(e:MouseEvent):void
 		{
 			
-			if(menuB == true)
+			if (menuB == true)
 			{
 				removeChild(options_button);
-			
-			removeChild(music);
-			removeChild(soundEffects);
-			removeChild(music_on);
-			removeChild(music_off);
-			removeChild(soundEffects_on);
-			removeChild(soundEffects_off);
-			
-			back.removeEventListener(MouseEvent.MOUSE_DOWN, buildMenuOP);
+				removeChild(music);
+				removeChild(soundEffects);
+				removeChild(music_on);
+				removeChild(music_off);
+				removeChild(soundEffects_on);
+				removeChild(soundEffects_off);
+				back.removeEventListener(MouseEvent.MOUSE_DOWN, buildMenuOP);
 			}
 			
 			if (menuB == false)
@@ -92,24 +89,18 @@ package
 				removeChild(selectLevel);
 				var i:int = 0;
 				
-				while ( i < maxLevel)
+				while (i < maxLevel)
 				{
 					removeChild(levels[i]);
 					levels[i].removeEventListener(MouseEvent.MOUSE_DOWN, lvlSelect);
 					i++;
 				}
+				
 				back.removeEventListener(MouseEvent.MOUSE_DOWN, buildMenuOP);
 			}
+			
 			buildMenuME();
 		}
-		
-		//private function buildMenuLV(e:MouseEvent):void
-		//{
-			//
-			//
-			//
-			//buildMenuME();
-		//}
 		
 		private function buildMenuME():void
 		{
@@ -148,7 +139,7 @@ package
 			{
 				menuMusic = new mySound as Sound;
 				menuMusicSound = menuMusic.play();
-
+				
 			}
 			if (musicState == false)
 			{
@@ -295,12 +286,11 @@ package
 			addChild(back);
 			back.addEventListener(MouseEvent.MOUSE_DOWN, buildMenuOP);
 			
-			
 			var i:int = 0;
 			var j:int = 0;
 			var k:int = 0;
 			
-			while ( i < maxLevel)
+			while (i < maxLevel)
 			{
 				levels[i].x = (j * 130) + 200;
 				j++;
@@ -312,7 +302,7 @@ package
 					k++;
 				}
 				addChild(levels[i]);
-				levels[i].label = (i+1);
+				levels[i].label = (i + 1);
 				levels[i].addEventListener(MouseEvent.MOUSE_DOWN, lvlSelect);
 				i++;
 			}
