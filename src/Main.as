@@ -86,8 +86,6 @@ package
 			addChild(background);
 			hamster = new Hamster(200, 450);
 			addChild(hamster);
-			addChild(hamsterFood);
-			addChild(giveWater);
 			addChild(gameUI);
 			addChild(overlay);
 			addButtons(Levels.getButtons(Levels.getLevel()));
@@ -129,6 +127,7 @@ package
 				switch (i){
 					case 0:
 						addChild(giveWaterButton);
+						addChild(giveWater);
 						giveWaterButton.mouseEnabled = false;
 						giveWaterButton.mouseChildren = false;
 						giveWaterButton.x = button.x + 85;
@@ -136,6 +135,7 @@ package
 					break;
 					case 1:
 						addChild(hamsterFoodButton);
+						addChild(hamsterFood);
 						hamsterFoodButton.mouseEnabled = false;
 						hamsterFoodButton.mouseChildren = false;
 						hamsterFoodButton.x = button.x + 30;
@@ -170,7 +170,6 @@ package
 					counter = 0;
 					removeBubble();
 					var lvl:int = Levels.getLevel();
-					trace("Level = " + lvl);
 					var numberOfButtons:int = Levels.getButtons(lvl);
 					//Calculated from 0 to 4, but number of buttons is 1-5 so thats why I added -1
 					need = hamster.chooseNeed(numberOfButtons - 1);
@@ -178,8 +177,9 @@ package
 					addChild(thoughtBubble);
 					thoughtBubble.x = hamster.x + 70;
 					thoughtBubble.y = hamster.y - 350;
-					buttonArray[need].giveNeed(need);
-					
+					for (var i:int = 0; i < numberOfButtons; i++) {
+						buttonArray[i].giveNeed(need);
+					}
 					//***************************************************
 					//NOT PROPER SOLUTION, NEED TO ADD TO DIFFERENT CLASS
 					//TESTING PURPOSES ONLY
