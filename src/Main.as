@@ -168,6 +168,7 @@ package
 				{
 					counterCheck = false;
 					counter = 0;
+					removeBubble();
 					var lvl:int = Levels.getLevel();
 					trace("Level = " + lvl);
 					var numberOfButtons:int = Levels.getButtons(lvl);
@@ -218,6 +219,16 @@ package
 					//***************************************************
 				}
 			}
+		}
+		
+		private function removeBubble():void {
+			addChild(thoughtBubble);
+			removeChild(thoughtBubble);
+		}
+		
+		public function setcounterCheck(value:Boolean):void 
+		{
+			counterCheck = value;
 		}
 	}
 }
