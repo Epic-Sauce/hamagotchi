@@ -57,7 +57,8 @@ package
 		private var lvl12 : Lvl12 = new Lvl12;
 		private var levels:Array = new Array(lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, lvl9, lvl10, lvl11, lvl12);
 		
-		/*Tweens*/
+		private var menuB:Boolean = true;
+		private var maxLevel:int = Levels.getMaxLevel() - 1;
 
 		
 		private var blurredBG:BackgroundBlurred = new BackgroundBlurred();
@@ -71,7 +72,11 @@ package
 		
 		private function buildMenuOP(e:MouseEvent):void
 		{
-			removeChild(options_button);
+			
+			if(menuB == true)
+			{
+				removeChild(options_button);
+			
 			removeChild(music);
 			removeChild(soundEffects);
 			removeChild(music_on);
@@ -80,16 +85,31 @@ package
 			removeChild(soundEffects_off);
 			
 			back.removeEventListener(MouseEvent.MOUSE_DOWN, buildMenuOP);
+			}
+			
+			if (menuB == false)
+			{
+				removeChild(selectLevel);
+				var i:int = 0;
+				
+				while ( i < maxLevel)
+				{
+					removeChild(levels[i]);
+					levels[i].removeEventListener(MouseEvent.MOUSE_DOWN, lvlSelect);
+					i++;
+				}
+				back.removeEventListener(MouseEvent.MOUSE_DOWN, buildMenuOP);
+			}
 			buildMenuME();
 		}
 		
-		private function buildMenuLV(e:MouseEvent):void
-		{
-			removeChild(selectLevel);
-			
-			back.removeEventListener(MouseEvent.MOUSE_DOWN, buildMenuLV);
-			buildMenuME();
-		}
+		//private function buildMenuLV(e:MouseEvent):void
+		//{
+			//
+			//
+			//
+			//buildMenuME();
+		//}
 		
 		private function buildMenuME():void
 		{
@@ -155,6 +175,8 @@ package
 		private function optionsScreen(e:MouseEvent):void
 		{
 			options_button.removeEventListener(MouseEvent.MOUSE_DOWN, optionsScreen);
+			
+			menuB = true;
 			
 			removeChild(logo);
 			removeChild(startGame);
@@ -259,6 +281,8 @@ package
 		{
 			selectLevel.removeEventListener(MouseEvent.MOUSE_DOWN, levelSelector);
 			
+			menuB = false;
+			
 			selectLevel.y = 200;
 			
 			removeChild(logo);
@@ -269,20 +293,20 @@ package
 			back.y = 670;
 			
 			addChild(back);
-			back.addEventListener(MouseEvent.MOUSE_DOWN, buildMenuLV);
+			back.addEventListener(MouseEvent.MOUSE_DOWN, buildMenuOP);
 			
-			var maxLevel:int = Levels.getMaxLevel() - 1;
+			
 			var i:int = 0;
 			var j:int = 0;
 			var k:int = 0;
 			
 			while ( i < maxLevel)
 			{
-				levels[i].x = (j * 130) + 265;
+				levels[i].x = (j * 130) + 200;
 				j++;
 				
 				levels[i].y = (k * 115) + 320;
-				if (j > 3)
+				if (j > 4)
 				{
 					j = 0;
 					k++;
