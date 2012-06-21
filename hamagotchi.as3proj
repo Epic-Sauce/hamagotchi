@@ -65,6 +65,7 @@
     <element path="lib\backButton.swc" />
     <element path="lib\hamsterFood.swc" />
     <element path="lib\Levels.swc" />
+    <element path="lib\StartLevel.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>

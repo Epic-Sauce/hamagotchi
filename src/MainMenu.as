@@ -56,6 +56,8 @@ package
 		private var lvl11:Lvl11 = new Lvl11;
 		private var lvl12:Lvl12 = new Lvl12;
 		private var levels:Array = new Array(lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, lvl9, lvl10, lvl11, lvl12);
+		private var levelSelect_start:StartLevel_btn = new StartLevel_btn;
+		
 		
 		private var menuB:Boolean = true;
 		private var maxLevel:int = Levels.getMaxLevel() - 1;
@@ -286,6 +288,11 @@ package
 			addChild(back);
 			back.addEventListener(MouseEvent.MOUSE_DOWN, buildMenuOP);
 			
+			addChild(levelSelect_start);
+			levelSelect_start.x = 760;
+			levelSelect_start.y = 670;
+			levelSelect_start.addEventListener(MouseEvent.MOUSE_DOWN, lvlSelect);
+			
 			var i:int = 0;
 			var j:int = 0;
 			var k:int = 0;
@@ -312,6 +319,7 @@ package
 		{
 			var theLevel:int = event.target.label;
 			Levels.setLevel(theLevel);
+			
 		}
 	
 	}
