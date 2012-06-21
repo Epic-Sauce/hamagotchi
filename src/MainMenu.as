@@ -1,5 +1,6 @@
 package
 {
+	import flash.display.DisplayObject;
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
@@ -56,6 +57,7 @@ package
 		private var lvl11:Lvl11 = new Lvl11;
 		private var lvl12:Lvl12 = new Lvl12;
 		private var levels:Array = new Array(lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, lvl9, lvl10, lvl11, lvl12);
+		private var selectedLevel:DisplayObject;
 		private var levelSelect_start:StartLevel_btn = new StartLevel_btn;
 		
 		
@@ -89,6 +91,13 @@ package
 			if (menuB == false)
 			{
 				removeChild(selectLevel);
+				
+				if (selectedLevel != null)
+				{
+					removeChild(selectedLevel);
+					selectedLevel = null;
+				}
+				
 				var i:int = 0;
 				
 				while (i < maxLevel)
@@ -319,7 +328,36 @@ package
 		{
 			var theLevel:int = event.target.label;
 			Levels.setLevel(theLevel);
+			/* var currentLevel:DisplayObject;
+			 * levels[Levels.getLevel() + 1];
+			 *
+			 * The solution came from this site:
+				 * http://www.dannyburbol.com/2009/01/movieclip-clone-flash-as3/
+			 * 
+			*/
 			
+			var levelClass:Class = Object(levels[Levels.getLevel()-1]).constructor;
+			var currentLevel:DisplayObject = new levelClass();
+			
+			if (selectedLevel == null)
+			{
+				selectedLevel = currentLevel;
+				selectedLevel.x = 435;
+				selectedLevel.y = 560;
+				selectedLevel.scaleX = 1.5;
+				selectedLevel.scaleY = 1.5;
+				addChild(currentLevel);				
+			}
+			else
+			{
+				removeChild(selectedLevel);
+				selectedLevel = currentLevel;
+				selectedLevel.x = 435;
+				selectedLevel.y = 560;
+				selectedLevel.scaleX = 1.5;
+				selectedLevel.scaleY = 1.5;
+				addChild(currentLevel);		
+			}
 		}
 	
 	}
