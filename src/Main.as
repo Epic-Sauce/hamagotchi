@@ -44,7 +44,7 @@ package
 		private var counterCheck:Boolean = true;
 		private var overlay:Overlay = new Overlay();
 		private var counter:int = 0;
-		private var counterMax:int = 30;
+		private var counterMax:int = 180;
 		private var need:int;
 		
 		private var mainMenu:MainMenu = new MainMenu();
@@ -54,11 +54,8 @@ package
 		private var giveWaterBubble:GiveWater = new GiveWater();
 		private var hamsterFoodBubble:HamsterFood = new HamsterFood();
 		private var hamsterFoodButton:HamsterFood = new HamsterFood();
+		
 		//*********
-		
-
-		
-
 		
 		public function Main():void
 		{
@@ -76,7 +73,6 @@ package
 			
 			addChild(mainMenu);
 			mainMenu.addEventListener("startNewGame", gameInit);
-
 		
 		}
 		
@@ -123,32 +119,33 @@ package
 				addChild(button);
 				buttonArray.push(button);
 				
-				switch (i){
-					case 0:
+				switch (i)
+				{
+					case 0: 
 						addChild(giveWaterButton);
 						addChild(giveWater);
 						giveWaterButton.mouseEnabled = false;
 						giveWaterButton.mouseChildren = false;
 						giveWaterButton.x = button.x + 85;
 						giveWaterButton.y = button.y + 35;
-					break;
-					case 1:
+						break;
+					case 1: 
 						addChild(hamsterFoodButton);
 						addChild(hamsterFood);
 						hamsterFoodButton.mouseEnabled = false;
 						hamsterFoodButton.mouseChildren = false;
 						hamsterFoodButton.x = button.x + 30;
 						hamsterFoodButton.y = button.y + 35;
-					break;
-					case 2:
+						break;
+					case 2: 
 						//addChild(giveWaterBubble);
-					break;
-					case 3:
+						break;
+					case 3: 
 						//addChild(giveWaterBubble);
-					break;
-					case 4:
+						break;
+					case 4: 
 						//addChild(giveWaterBubble);
-					break;
+						break;
 				}
 				
 				i++;
@@ -167,7 +164,6 @@ package
 				{
 					counterCheck = false;
 					counter = 0;
-					removeBubble();
 					var lvl:int = Levels.getLevel();
 					var numberOfButtons:int = Levels.getButtons(lvl);
 					//Calculated from 0 to 4, but number of buttons is 1-5 so thats why I added -1
@@ -176,58 +172,71 @@ package
 					addChild(thoughtBubble);
 					thoughtBubble.x = hamster.x + 70;
 					thoughtBubble.y = hamster.y - 350;
-					for (var i:int = 0; i < numberOfButtons; i++) {
+					for (var i:int = 0; i < numberOfButtons; i++)
+					{
 						buttonArray[i].giveNeed(need);
 					}
 					//***************************************************
 					//NOT PROPER SOLUTION, NEED TO ADD TO DIFFERENT CLASS
 					//TESTING PURPOSES ONLY
 					//***************************************************
-					switch (need){
-						case 0:
+					switch (need)
+					{
+						case 0: 
 							addChild(giveWaterBubble);
 							giveWaterBubble.x = thoughtBubble.x + 133;
 							giveWaterBubble.y = thoughtBubble.y + 45;
 							trace("added water");
-						break;
-						case 1:
+							break;
+						case 1: 
 							addChild(hamsterFoodBubble);
 							hamsterFoodBubble.x = thoughtBubble.x + 70;
 							hamsterFoodBubble.y = thoughtBubble.y + 50;
 							trace("added food");
-						break;
-						case 2:
+							break;
+						case 2: 
 							addChild(giveWaterBubble);
 							giveWaterBubble.x = thoughtBubble.x + 90;
 							giveWaterBubble.y = thoughtBubble.y + 30;
 							trace("added wheel");
-						break;
-						case 3:
+							break;
+						case 3: 
 							addChild(giveWaterBubble);
 							giveWaterBubble.x = thoughtBubble.x + 90;
 							giveWaterBubble.y = thoughtBubble.y + 30;
 							trace("added clean");
-						break;
-						case 4:
+							break;
+						case 4: 
 							addChild(giveWaterBubble);
 							giveWaterBubble.x = thoughtBubble.x + 90;
 							giveWaterBubble.y = thoughtBubble.y + 30;
 							trace("added tubes");
-						break;
+							break;
 					}
-					//***************************************************
+						//***************************************************
 				}
 			}
 		}
 		
-		private function removeBubble():void {
+		private function removeBubble():void
+		{
 			addChild(thoughtBubble);
 			removeChild(thoughtBubble);
+			addChild(hamsterFoodBubble);
+			removeChild(hamsterFoodBubble);
+			addChild(giveWaterBubble);
+			removeChild(giveWaterBubble);
 		}
 		
-		public function setcounterCheck(value:Boolean):void 
+		public function setcounterCheck(value:Boolean):void
 		{
 			counterCheck = value;
+			removeBubble();
+		}
+		
+		public function getcounterCheck():Boolean 
+		{
+			return counterCheck;
 		}
 	}
 }

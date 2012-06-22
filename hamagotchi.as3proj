@@ -51,19 +51,15 @@
   <!-- SWC Libraries -->
   <libraryPaths>
     <element path="lib\buttonTestQuality.swc" />
-    <element path="lib\buttonTest.swc" />
-    <element path="lib\hamsterCage.swc" />
-    <element path="lib\gameUI.swc" />
     <element path="lib\thoughtBubble.swc" />
-    <element path="lib\WaterBottle.swc" />
-    <element path="lib\hamsterTest.swc" />
-    <element path="lib\HamagotchiLogo.swc" />
     <element path="lib\StartSpel.swc" />
-    <element path="lib\backgroundBlurred.swc" />
     <element path="lib\menuButtons.swc" />
     <element path="lib\optionsMenu.swc" />
-    <element path="lib\backButton.swc" />
     <element path="lib\hamsterFood.swc" />
+    <element path="lib\HamagotchiLogo.swc" />
+    <element path="lib\backgroundBlurred.swc" />
+    <element path="lib\backButton.swc" />
+    <element path="lib\hamsterTest.swc" />
     <element path="lib\Levels.swc" />
     <element path="lib\StartLevel.swc" />
   </libraryPaths>

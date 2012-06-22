@@ -33,16 +33,16 @@ package
 		
 		private function onClick(e:MouseEvent):void
 		{
-			trace(this.name + " onClick received");
-			if (this.name == ("button" + need)) {
-				m.setcounterCheck(true);
-				trace("SUCCES FOR NEED: "+need);
+			if (m.getcounterCheck() == false) {
+				trace(this.name + " onClick received");
+				if (this.name == ("button" + need)) {
+					m.setcounterCheck(true);
+					trace("SUCCES FOR NEED: "+need);
+				}
+				else{
+					trace("NO.");
 			}
-			else{
-				trace("NO.");
 			}
 		}
-	
 	}
-
 }
