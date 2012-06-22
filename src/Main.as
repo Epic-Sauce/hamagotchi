@@ -87,8 +87,8 @@ package
 			hamster = new Hamster(200, 450);
 			addChild(hamster);
 			addChild(gameUI);
-			addChild(overlay);
 			addButtons(Levels.getButtons(Levels.getLevel()));
+			addChild(overlay);
 			//Sizes and position
 			hamsterFood.x = 750;
 			hamsterFood.y = 420;
@@ -108,7 +108,6 @@ package
 			hamsterFoodButton.scaleY = 0.4;
 			//***********************************
 			addEventListener(Event.ENTER_FRAME, loop);
-		
 		}
 		
 		private function addButtons(amount:int):void
