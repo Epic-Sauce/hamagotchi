@@ -300,7 +300,7 @@ package
 			addChild(levelSelect_start);
 			levelSelect_start.x = 760;
 			levelSelect_start.y = 670;
-			levelSelect_start.addEventListener(MouseEvent.MOUSE_DOWN, lvlSelect);
+			levelSelect_start.addEventListener(MouseEvent.MOUSE_DOWN, startSelectedLvl);
 			
 			var i:int = 0;
 			var j:int = 0;
@@ -319,9 +319,16 @@ package
 				}
 				addChild(levels[i]);
 				levels[i].label = (i + 1);
+				levels[i].scaleX = 0.75;
+				levels[i].scaleY = 0.75;
 				levels[i].addEventListener(MouseEvent.MOUSE_DOWN, lvlSelect);
 				i++;
 			}
+		}
+		
+		private function startSelectedLvl(e:MouseEvent):void 
+		{
+			dispatchEvent(new Event("startNewGame"));
 		}
 		
 		private function lvlSelect(event:MouseEvent):void
@@ -344,8 +351,7 @@ package
 				selectedLevel = currentLevel;
 				selectedLevel.x = 435;
 				selectedLevel.y = 560;
-				selectedLevel.scaleX = 1.5;
-				selectedLevel.scaleY = 1.5;
+
 				addChild(currentLevel);				
 			}
 			else
@@ -354,8 +360,7 @@ package
 				selectedLevel = currentLevel;
 				selectedLevel.x = 435;
 				selectedLevel.y = 560;
-				selectedLevel.scaleX = 1.5;
-				selectedLevel.scaleY = 1.5;
+				
 				addChild(currentLevel);		
 			}
 		}
