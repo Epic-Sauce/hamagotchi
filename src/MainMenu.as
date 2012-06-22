@@ -108,6 +108,8 @@ package
 				}
 				
 				back.removeEventListener(MouseEvent.MOUSE_DOWN, buildMenuOP);
+				removeChild(levelSelect_start);
+				Levels.setLevel(1);
 			}
 			
 			buildMenuME();
@@ -308,11 +310,11 @@ package
 			
 			while (i < maxLevel)
 			{
-				levels[i].x = (j * 130) + 200;
+				levels[i].x = (j * 130) + 275;
 				j++;
 				
-				levels[i].y = (k * 115) + 320;
-				if (j > 4)
+				levels[i].y = (k * 115) + 330;
+				if (j > 3)
 				{
 					j = 0;
 					k++;
@@ -349,7 +351,7 @@ package
 			if (selectedLevel == null)
 			{
 				selectedLevel = currentLevel;
-				selectedLevel.x = 435;
+				selectedLevel.x = 455;
 				selectedLevel.y = 560;
 
 				addChild(currentLevel);				

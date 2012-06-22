@@ -20,17 +20,9 @@ package
 	 * Touchscreen test (maybe)
 	 *
 	 * TODO
-	 *
-	 * Menu
 	 * Quit
 	 * Pause
-	 * Random needs
-	 * More Needs
-	 * Levels
-	 * Error check (onclick button)
 	 * Animate
-	 *
-	 *
 	 */
 	public class Main extends Sprite
 	{
@@ -54,7 +46,6 @@ package
 		private var giveWaterBubble:GiveWater = new GiveWater();
 		private var hamsterFoodBubble:HamsterFood = new HamsterFood();
 		private var hamsterFoodButton:HamsterFood = new HamsterFood();
-		
 		//*********
 		
 		public function Main():void
