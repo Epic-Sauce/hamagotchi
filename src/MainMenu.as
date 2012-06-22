@@ -360,7 +360,7 @@ package
 			{
 				removeChild(selectedLevel);
 				selectedLevel = currentLevel;
-				selectedLevel.x = 435;
+				selectedLevel.x = 455;
 				selectedLevel.y = 560;
 				
 				addChild(currentLevel);		

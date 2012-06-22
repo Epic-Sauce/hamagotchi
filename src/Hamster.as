@@ -14,7 +14,7 @@ package
 	{
 		private var color:uint = 0x00FF00;
 		
-		[Embed(source="../lib/hamsterIdleAnimation.swf", symbol="HamsterIdle")]
+		[Embed(source="../lib/hamsterAnimations.swf", symbol="hamsterAnimations")]
 		private var HamsterIdle:Class;
 		private var hamster_Idle:MovieClip = new HamsterIdle() as MovieClip;
 		

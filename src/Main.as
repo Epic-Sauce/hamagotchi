@@ -71,10 +71,11 @@ package
 		{
 			mainMenu.removeEventListener("startNewGame", gameInit);
 			addChild(background);
-			hamster = new Hamster(200, 450);
-			addChild(hamster);
+			hamster = new Hamster(480, 430);
+			
 			addChild(gameUI);
 			addButtons(Levels.getButtons(Levels.getLevel()));
+			addChild(hamster);
 			addChild(overlay);
 			//Sizes and position
 			hamsterFood.x = 750;

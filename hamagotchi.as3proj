@@ -81,6 +81,7 @@
     <asset path="lib\hamsterIdleAnimation - Copy.swf" />
     <asset path="lib\hamsterIdleAnimation.swf" />
     <asset path="lib\mainMenu.mp3" />
+    <asset path="lib\hamsterAnimations.swf" />
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
