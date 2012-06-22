@@ -31,6 +31,7 @@ package
 			hamster_Idle.scaleY = 0.85;
 			hamster_Idle.play();
 			addEventListener(Event.ENTER_FRAME, loop);
+			addEventListener("animateNo", animateNo);
 		}
 		
 		public function chooseNeed(range:int):int
@@ -43,7 +44,13 @@ package
 		
 		//Laat de "hamster" heen en weer bewegen tussen bepaalde grensen (aanpassen naar positie van de objecten en knop input)
 		private function loop(e:Event):void {	
-			
+			//if (hamster_Idle.currentFrame()) {
+			//	hamster_Idle.stop();
+			//}
+		}
+		
+		public function animateNo():void {
+			hamster_Idle.gotoAndPlay(104);
 		}
 	}
 }

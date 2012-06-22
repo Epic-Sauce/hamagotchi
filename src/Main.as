@@ -230,5 +230,9 @@ package
 		{
 			return counterCheck;
 		}
+		
+		public function noAnimate():void {
+			hamster.animateNo();
+		}
 	}
 }

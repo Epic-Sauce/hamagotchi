@@ -41,7 +41,8 @@ package
 				}
 				else{
 					trace("NO.");
-			}
+					m.noAnimate();
+				}
 			}
 		}
 	}
