@@ -19,6 +19,10 @@ package
 		private var hamster_Idle:MovieClip = new HamsterIdle() as MovieClip;
 		
 		private var hamster:HamsterTest = new HamsterTest();
+		
+		private var noFrame:int = 145;
+		private var idleFrame:int = 103;
+		private var drinkFrame:int = 245;
 
 		public function Hamster(posX:int, posY:int)
 		{
@@ -44,13 +48,23 @@ package
 		
 		//Laat de "hamster" heen en weer bewegen tussen bepaalde grensen (aanpassen naar positie van de objecten en knop input)
 		private function loop(e:Event):void {	
-			//if (hamster_Idle.currentFrame()) {
-			//	hamster_Idle.stop();
-			//}
+			if (hamster_Idle.currentFrame == noFrame) {
+				hamster_Idle.gotoAndPlay(0);
+			}
+			if (hamster_Idle.currentFrame == idleFrame) {
+				hamster_Idle.gotoAndPlay(0);
+			}
+			if (hamster_Idle.currentFrame == drinkFrame) {
+				hamster_Idle.gotoAndPlay(0);
+			}
 		}
 		
 		public function animateNo():void {
 			hamster_Idle.gotoAndPlay(104);
+		}
+		
+		public function animateDrink():void {
+			hamster_Idle.gotoAndPlay(146);
 		}
 	}
 }

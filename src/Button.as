@@ -37,7 +37,8 @@ package
 				trace(this.name + " onClick received");
 				if (this.name == ("button" + need)) {
 					m.setcounterCheck(true);
-					trace("SUCCES FOR NEED: "+need);
+					trace("SUCCES FOR NEED: " + need);
+					m.drinkAnimate();
 				}
 				else{
 					trace("NO.");

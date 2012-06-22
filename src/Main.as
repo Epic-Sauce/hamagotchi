@@ -234,5 +234,9 @@ package
 		public function noAnimate():void {
 			hamster.animateNo();
 		}
+		
+		public function drinkAnimate():void {
+			hamster.animateDrink();
+		}
 	}
 }
