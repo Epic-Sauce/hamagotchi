@@ -39,6 +39,7 @@ package
 		[Embed(source="../lib/mainMenu.mp3")]
 		private var mySound:Class;
 		private var menuMusic:Sound;
+		private var MusicPlaying:Boolean;
 		
 		private var menuMusicSound:SoundChannel;
 		
@@ -150,13 +151,22 @@ package
 			
 			if (musicState == true)
 			{
-				menuMusic = new mySound as Sound;
-				menuMusicSound = menuMusic.play();
-				
+				if(menuMusicSound == null){
+					menuMusic = new mySound as Sound;
+					menuMusicSound = menuMusic.play();
+					MusicPlaying = true;
+				} else if (!MusicPlaying){
+					menuMusicSound = menuMusic.play();
+					MusicPlaying = true;
+				}
 			}
 			if (musicState == false)
 			{
-				menuMusicSound.stop();
+				if (MusicPlaying)
+				{
+					menuMusicSound.stop();
+					MusicPlaying = false;
+				}
 			}
 		
 		}
