@@ -41,6 +41,18 @@ package
 		
 		private var mainMenu:MainMenu = new MainMenu();
 		
+		// For level indication
+		private var lvl1:Lvl1 = new Lvl1;
+		private var lvl2:Lvl2 = new Lvl2;
+		private var lvl3:Lvl3 = new Lvl3;
+		private var lvl4:Lvl4 = new Lvl4;
+		private var lvl5:Lvl5 = new Lvl5;
+		private var lvl6:Lvl6 = new Lvl6;
+		private var lvl7:Lvl7 = new Lvl7;
+		private var lvl8:Lvl8 = new Lvl8;
+		private var levels:Array = new Array(lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8);
+		private var currentLevel:DisplayObject;
+		
 		//****Icons
 		private var giveWaterButton:GiveWater = new GiveWater();
 		private var giveWaterBubble:GiveWater = new GiveWater();
@@ -74,9 +86,18 @@ package
 			hamster = new Hamster(480, 430);
 			
 			addChild(gameUI);
-			addButtons(Levels.getButtons(Levels.getLevel()));
+			addButtons(Levels.getButtons(Levels.getLevel()-1));
 			addChild(hamster);
 			addChild(overlay);
+			
+			currentLevel = levels[Levels.getLevel()];
+			addChild(currentLevel);
+			
+			currentLevel.x = 900;
+			currentLevel.y = 640;
+			currentLevel.scaleX = 0.8;
+			currentLevel.scaleY = 0.8;
+			
 			//Sizes and position
 			hamsterFood.x = 750;
 			hamsterFood.y = 420;
