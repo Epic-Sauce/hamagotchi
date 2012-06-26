@@ -38,7 +38,16 @@ package
 				if (this.name == ("button" + need)) {
 					m.setcounterCheck(true);
 					trace("SUCCES FOR NEED: " + need);
-					m.drinkAnimate();
+					switch (need)
+					{
+						case 0: 
+							m.drinkAnimate();
+							break;
+						case 1: 
+							m.eatAnimate();
+							break;
+						case 2: 
+					}
 				}
 				else{
 					trace("NO.");

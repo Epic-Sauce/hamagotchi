@@ -238,5 +238,9 @@ package
 		public function drinkAnimate():void {
 			hamster.animateDrink();
 		}
+		
+		public function eatAnimate():void {
+			hamster.animateEat();
+		}
 	}
 }

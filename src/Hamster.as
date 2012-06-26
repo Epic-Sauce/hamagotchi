@@ -23,6 +23,7 @@ package
 		private var noFrame:int = 145;
 		private var idleFrame:int = 103;
 		private var drinkFrame:int = 245;
+		private var eatFrame:int = 325;
 
 		public function Hamster(posX:int, posY:int)
 		{
@@ -57,6 +58,9 @@ package
 			if (hamster_Idle.currentFrame == drinkFrame) {
 				hamster_Idle.gotoAndPlay(0);
 			}
+			if (hamster_Idle.currentFrame == eatFrame) {
+				hamster_Idle.gotoAndPlay(0);
+			}
 		}
 		
 		public function animateNo():void {
@@ -65,6 +69,11 @@ package
 		
 		public function animateDrink():void {
 			hamster_Idle.gotoAndPlay(146);
+		}
+		
+		public function animateEat():void 
+		{
+			hamster_Idle.gotoAndPlay(249);
 		}
 	}
 }
