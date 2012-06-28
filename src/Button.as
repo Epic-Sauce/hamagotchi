@@ -22,6 +22,7 @@ package
 		
 		private function init(e:Event):void
 		{
+			removeEventListener(Event.ADDED_TO_STAGE, init)
 			addEventListener(MouseEvent.CLICK, onClick);
 		
 		}
@@ -54,6 +55,12 @@ package
 					m.noAnimate();
 				}
 			}
+		}
+		
+		public function killme()
+		{
+			removeEventListener(MouseEvent.CLICK, onClick);
+			parent.removeChild(this);
 		}
 	}
 }

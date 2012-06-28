@@ -376,6 +376,11 @@ package
 				addChild(currentLevel);		
 			}
 		}
+		
+		public function startNextLevel():void {
+			trace("POO");
+			dispatchEvent(new Event("startNewGame"));
+		}
 	
 	}
 

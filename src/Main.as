@@ -38,6 +38,7 @@ package
 		private var counter:int = 0;
 		private var counterMax:int = 180;
 		private var need:int;
+		private var correctCount:int = 0;
 		
 		private var mainMenu:MainMenu = new MainMenu();
 		
@@ -81,16 +82,16 @@ package
 		
 		private function gameInit(e:Event):void
 		{
-			mainMenu.removeEventListener("startNewGame", gameInit);
+			counterCheck = true;
 			addChild(background);
 			hamster = new Hamster(480, 430);
 			
 			addChild(gameUI);
-			addButtons(Levels.getButtons(Levels.getLevel()-1));
+			addButtons(Levels.getButtons(Levels.getLevel()));
 			addChild(hamster);
 			addChild(overlay);
 			
-			currentLevel = levels[Levels.getLevel()];
+			currentLevel = levels[Levels.getLevel()-1];
 			addChild(currentLevel);
 			
 			currentLevel.x = 900;
@@ -122,6 +123,14 @@ package
 		private function addButtons(amount:int):void
 		{
 			var i:int = 0;
+			var j:int = 0;
+			if(buttonArray[j] != null) {
+				while (buttonArray[j]) {
+					buttonArray[j].killme();
+					j++;
+				}
+				buttonArray = [];
+			}
 			while (i < amount)
 			{
 				//i multiplied by 200, for proper spacing
@@ -175,58 +184,68 @@ package
 				}
 				else
 				{
-					counterCheck = false;
-					counter = 0;
-					var lvl:int = Levels.getLevel();
-					var numberOfButtons:int = Levels.getButtons(lvl);
-					//Calculated from 0 to 4, but number of buttons is 1-5 so thats why I added -1
-					need = hamster.chooseNeed(numberOfButtons - 1);
-					//done with choseNeed, add icon on top of thoughtBubble
-					addChild(thoughtBubble);
-					thoughtBubble.x = hamster.x + 70;
-					thoughtBubble.y = hamster.y - 350;
-					for (var i:int = 0; i < numberOfButtons; i++)
-					{
-						buttonArray[i].giveNeed(need);
+					if (correctCount == 7) {
+						counter = 0;
+						correctCount = 0;
+						counterCheck = false;
+						var lvlGet:int = Levels.getLevel();
+						Levels.setLevel(lvlGet + 1);
+						mainMenu.startNextLevel();
 					}
-					//***************************************************
-					//NOT PROPER SOLUTION, NEED TO ADD TO DIFFERENT CLASS
-					//TESTING PURPOSES ONLY
-					//***************************************************
-					switch (need)
-					{
-						case 0: 
-							addChild(giveWaterBubble);
-							giveWaterBubble.x = thoughtBubble.x + 133;
-							giveWaterBubble.y = thoughtBubble.y + 45;
-							trace("added water");
-							break;
-						case 1: 
-							addChild(hamsterFoodBubble);
-							hamsterFoodBubble.x = thoughtBubble.x + 70;
-							hamsterFoodBubble.y = thoughtBubble.y + 50;
-							trace("added food");
-							break;
-						case 2: 
-							addChild(giveWaterBubble);
-							giveWaterBubble.x = thoughtBubble.x + 90;
-							giveWaterBubble.y = thoughtBubble.y + 30;
-							trace("added wheel");
-							break;
-						case 3: 
-							addChild(giveWaterBubble);
-							giveWaterBubble.x = thoughtBubble.x + 90;
-							giveWaterBubble.y = thoughtBubble.y + 30;
-							trace("added clean");
-							break;
-						case 4: 
-							addChild(giveWaterBubble);
-							giveWaterBubble.x = thoughtBubble.x + 90;
-							giveWaterBubble.y = thoughtBubble.y + 30;
-							trace("added tubes");
-							break;
-					}
+					else {
+						counterCheck = false;
+						counter = 0;
+						var lvl:int = Levels.getLevel();
+						var numberOfButtons:int = Levels.getButtons(lvl);
+						//Calculated from 0 to 4, but number of buttons is 1-5 so thats why I added -1
+						need = hamster.chooseNeed(numberOfButtons - 1);
+						//done with choseNeed, add icon on top of thoughtBubble
+						addChild(thoughtBubble);
+						thoughtBubble.x = hamster.x + 70;
+						thoughtBubble.y = hamster.y - 350;
+						for (var i:int = 0; i < numberOfButtons; i++)
+						{
+							buttonArray[i].giveNeed(need);
+						}
 						//***************************************************
+						//NOT PROPER SOLUTION, NEED TO ADD TO DIFFERENT CLASS
+						//TESTING PURPOSES ONLY
+						//***************************************************
+						switch (need)
+						{
+							case 0: 
+								addChild(giveWaterBubble);
+								giveWaterBubble.x = thoughtBubble.x + 133;
+								giveWaterBubble.y = thoughtBubble.y + 45;
+								trace("added water");
+								break;
+							case 1: 
+								addChild(hamsterFoodBubble);
+								hamsterFoodBubble.x = thoughtBubble.x + 70;
+								hamsterFoodBubble.y = thoughtBubble.y + 50;
+								trace("added food");
+								break;
+							case 2: 
+								addChild(giveWaterBubble);
+								giveWaterBubble.x = thoughtBubble.x + 90;
+								giveWaterBubble.y = thoughtBubble.y + 30;
+								trace("added wheel");
+								break;
+							case 3: 
+								addChild(giveWaterBubble);
+								giveWaterBubble.x = thoughtBubble.x + 90;
+								giveWaterBubble.y = thoughtBubble.y + 30;
+								trace("added clean");
+								break;
+							case 4: 
+								addChild(giveWaterBubble);
+								giveWaterBubble.x = thoughtBubble.x + 90;
+								giveWaterBubble.y = thoughtBubble.y + 30;
+								trace("added tubes");
+								break;
+						}
+						//***************************************************
+					}
 				}
 			}
 		}
@@ -245,6 +264,8 @@ package
 		{
 			counterCheck = value;
 			removeBubble();
+			correctCount++;
+			
 		}
 		
 		public function getcounterCheck():Boolean 
